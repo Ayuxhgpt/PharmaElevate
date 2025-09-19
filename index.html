@@ -1,90 +1,230 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PharmaElevate - Satyadev College of Pharmacy</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PharmaElevate — Elevating Pharma Education</title>
+
+  <!-- SEO -->
+  <meta name="description" content="PharmaElevate — A student-led B.Pharmacy project (Satyadev College of Pharmacy). Learn about pharmacy scope, pharmacovigilance, AI in pharma, telepharmacy, student resources and college events." />
+  <meta name="keywords" content="Pharmacy Education, Pharmacovigilance, Telepharmacy, AI Drug Discovery, Pharma Careers, Satyadev College of Pharmacy, PharmaElevate" />
+  <meta name="author" content="Ayush Gupta, Saksham Gupta" />
+
+  <!-- Favicon (college logo) -->
+  <link rel="icon" type="image/png" href="assists/scp.jpg?raw=true">
+
+  <!-- Fonts & icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="assists/scp.jpg">
-  <meta name="description" content="PharmaElevate - A student-led project from Satyadev College of Pharmacy. Learn Pharma scope, healthcare awareness & future opportunities.">
-  <meta name="keywords" content="Pharmacy, Pharma Education, Healthcare Awareness, Pharma Scope, B Pharma, Satyadev College of Pharmacy">
 </head>
 <body>
 
-  <!-- Navbar -->
-  <header class="navbar">
-    <div class="nav-container">
-      <div class="logo">
-        <img src="assists/scp.jpg" alt="College Logo" class="college-logo">
-        <span>PharmaElevate</span>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="#highlights">Highlights</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="#developers">Developers</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+  <!-- STICKY GLASS NAVBAR -->
+  <header class="nav-glass" id="site-header">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">
+        <img src="assists/scp.jpg?raw=true" alt="Satyadev College Logo" class="brand-logo">
+        <div class="brand-text">
+          <div class="brand-title">PharmaElevate</div>
+          <div class="brand-sub">Satyadev College of Pharmacy</div>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home" class="active">Home</a>
+        <a href="pharma.html">Pharma Knowledge</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="#research">Research</a>
+        <a href="#developers">Developers</a>
+        <a href="#contact">Contact</a>
       </nav>
+
+      <button id="menuBtn" class="menu-btn" aria-label="Toggle menu">
+        <i class="fa fa-bars"></i>
+      </button>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <h1>Welcome to PharmaElevate 🚀</h1>
-    <p>A student-led platform exploring the Scope of Pharmacy, Future of Healthcare & Awareness for all.</p>
-    <a href="#highlights" class="cta-btn">Explore More</a>
-  </section>
-
-  <!-- Highlights -->
-  <section id="highlights" class="highlights">
-    <h2>Key Highlights</h2>
-    <div class="card-container">
-      <div class="card"><i class="fas fa-book-medical"></i><h3>Pharma Knowledge</h3><p>Learn core pharma concepts & latest research.</p></div>
-      <div class="card"><i class="fas fa-user-graduate"></i><h3>Student Resources</h3><p>Notes, study guides & exam prep materials.</p></div>
-      <div class="card"><i class="fas fa-heartbeat"></i><h3>Healthcare Awareness</h3><p>Guides on safe medicine, vaccines & wellness.</p></div>
+  <!-- HERO with GRADIENT + ANIMATED TEXT -->
+  <section id="home" class="hero">
+    <div class="hero-inner">
+      <h1 class="hero-title">
+        <span class="anim-word">Innovate</span>
+        <span class="anim-word">Learn</span>
+        <span class="anim-word">Serve</span>
+      </h1>
+      <p class="hero-sub">PharmaElevate — student-run portal for pharmaceutical learning, research summaries, health awareness and career guidance.</p>
+      <div class="hero-ctas">
+        <a href="pharma.html" class="btn primary">Explore Pharma Knowledge</a>
+        <a href="gallery.html" class="btn ghost">Open Gallery</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong class="count" data-target="120">120</strong><span>Students reached</span></div>
+        <div class="stat"><strong class="count" data-target="18">18</strong><span>Articles & Guides</span></div>
+        <div class="stat"><strong class="count" data-target="7">7</strong><span>College Events</span></div>
+      </div>
     </div>
   </section>
 
-  <!-- Developers -->
-  <section id="developers" class="developers">
-    <h2>Meet the Developers</h2>
-    <div class="dev-container">
+  <!-- KEY HIGHLIGHTS / HOVER CARDS -->
+  <section class="section highlights" id="highlights">
+    <div class="container">
+      <h2 class="section-heading">What we offer</h2>
+      <div class="cards-grid">
+        <article class="card hover-float">
+          <div class="card-icon"><i class="fa-solid fa-book-medical"></i></div>
+          <h3>Pharma Knowledge</h3>
+          <p>Core concepts, drug profiles, safe use, pharmacology basics and clinical insights — curated for B.Pharm students.</p>
+          <a class="card-link" href="pharma.html">Read more →</a>
+        </article>
 
-      <div class="dev-card">
-        <img src="assists/ayupfp.jpg" alt="Ayush Gupta" class="dev-img">
-        <h3>Ayush Gupta</h3>
-        <p>Lead Developer</p>
-        <p>Created PharmaElevate with passion for healthcare & tech innovation.</p>
-        <div class="social-links">
-          <a href="https://github.com/Ayuxhgpt" target="_blank"><i class="fab fa-github"></i></a>
-          <a href="#"><i class="fab fa-linkedin"></i></a>
-        </div>
+        <article class="card hover-float">
+          <div class="card-icon"><i class="fa-solid fa-flask-vial"></i></div>
+          <h3>Research Summaries</h3>
+          <p>Short, student-friendly summaries of latest research topics: AI in drug discovery, pharmacovigilance developments, and telepharmacy trends. <small>(sources cited)</small></p>
+          <a class="card-link" href="#research">Explore research →</a>
+        </article>
+
+        <article class="card hover-float">
+          <div class="card-icon"><i class="fa-solid fa-image"></i></div>
+          <h3>Gallery & Events</h3>
+          <p>Photo album of labs, awareness drives and events. Students can preview and (future) upload their images.</p>
+          <a class="card-link" href="gallery.html">Open gallery →</a>
+        </article>
+
+        <article class="card hover-float">
+          <div class="card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+          <h3>Student Resources</h3>
+          <p>Practical notes, past papers, summary cards and quick revision sheets to help you prep for exams and practicals.</p>
+          <a class="card-link" href="resources.html">View resources →</a>
+        </article>
       </div>
-
-      <div class="dev-card">
-        <img src="assists/ayupfp.jpg" alt="Saksham Gupta" class="dev-img">
-        <h3>Saksham Gupta</h3>
-        <p>Contributor</p>
-        <p>Helped in design, content & research for PharmaElevate.</p>
-        <div class="social-links">
-          <a href="https://github.com/Ayuxhgpt" target="_blank"><i class="fab fa-github"></i></a>
-          <a href="#"><i class="fab fa-linkedin"></i></a>
-        </div>
-      </div>
-
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer id="contact">
-    <img src="assists/scp.jpg" alt="College Logo" class="footer-logo">
-    <p>© 2025 PharmaElevate | Satyadev College of Pharmacy <br> Developed by Ayush Gupta & Saksham Gupta</p>
+  <!-- RESEARCH & AUTHORITY (with citations) -->
+  <section class="section research" id="research">
+    <div class="container">
+      <h2 class="section-heading">Research & Trends shaping Pharmacy</h2>
+
+      <div class="research-grid">
+
+        <div class="research-card">
+          <h3>Pharmacovigilance — Drug Safety</h3>
+          <p>Pharmacovigilance is the science of detecting, assessing and preventing adverse effects and other drug-related problems. Robust PV systems are essential for public safety and post-marketing surveillance. 5</p>
+        </div>
+
+        <div class="research-card">
+          <h3>AI in Drug Discovery & Safety</h3>
+          <p>Artificial intelligence accelerates target identification, lead optimization and safety prediction — enabling faster and cheaper drug discovery pipelines. AI is also being applied to pharmacovigilance to detect signals from big data sources. 6</p>
+        </div>
+
+        <div class="research-card">
+          <h3>Telepharmacy — Remote Care</h3>
+          <p>Telepharmacy delivers pharmaceutical care remotely (counseling, monitoring, and sometimes dispensing) and helps expand access in underserved areas. Telepharmacy programs are increasingly adopted worldwide. 7</p>
+        </div>
+
+        <div class="research-card">
+          <h3>Pharma Careers & India’s Role</h3>
+          <p>India continues to scale its pharma R&D and manufacturing capabilities — fueling job creation in clinical research, manufacturing, regulatory affairs and pharmacovigilance. Recent industry growth and investment are creating more opportunities for pharmacy graduates. 8</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED ARTICLES / BLOG -->
+  <section class="section articles">
+    <div class="container">
+      <h2 class="section-heading">Featured Guides</h2>
+      <div class="article-grid">
+        <article class="article-card">
+          <h3>What is Pharmacovigilance?</h3>
+          <p>Concise explainer: reporting, signal detection, national PV programs and why pharmacists are key to patient safety. (See citations in research section.)</p>
+          <a href="blog.html#pv" class="read-more">Read →</a>
+        </article>
+        <article class="article-card">
+          <h3>Telepharmacy: Reaching the unreached</h3>
+          <p>How telepharmacy helps rural communities and complements clinical pharmacy services — practical examples and best practices.</p>
+          <a href="blog.html#tele" class="read-more">Read →</a>
+        </article>
+        <article class="article-card">
+          <h3>AI for Pharmacy Students</h3>
+          <p>Intro to AI tools and how pharmacy students can learn data literacy for future roles in research and PV.</p>
+          <a href="blog.html#ai" class="read-more">Read →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEET THE DEVELOPERS -->
+  <section class="section developers" id="developers">
+    <div class="container narrow">
+      <h2 class="section-heading">Meet the Developers</h2>
+      <div class="dev-grid">
+        <div class="dev-card">
+          <img class="dev-img" src="https://github.com/Ayuxhgpt/PharmaElevate/blob/main/assists/ayupfp.jpg?raw=true" alt="Ayush Gupta">
+          <h4>Ayush Gupta</h4>
+          <p class="muted">Lead Developer & Designer — B.Pharm (Satyadev College of Pharmacy)</p>
+          <p class="bio">Building PharmaElevate to bring pharmacy knowledge online. Interested in clinical pharmacy and UX for health tech.</p>
+          <div class="socials">
+            <a href="https://github.com/Ayuxhgpt" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="dev-card">
+          <img class="dev-img" src="https://github.com/Ayuxhgpt/PharmaElevate/blob/main/assists/ayupfp.jpg?raw=true" alt="Saksham Gupta">
+          <h4>Saksham Gupta</h4>
+          <p class="muted">Supporter & Research Contributor</p>
+          <p class="bio">Contributed to research summaries, content curation and event coordination.</p>
+          <div class="socials">
+            <a href="https://github.com/Ayuxhgpt" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / Newsletter -->
+  <section class="section cta" aria-labelledby="subscribe">
+    <div class="container">
+      <h2 id="subscribe" class="section-heading">Stay in the loop</h2>
+      <p class="muted center">Sign up for project updates, event news, and short study guides (demo sign-up; Netlify forms supported on deployment).</p>
+
+      <form class="subscribe-form" name="subscribe" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="subscribe">
+        <input name="email" type="email" placeholder="your.email@domain.com" required>
+        <button class="btn primary" type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact" class="footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <img src="assists/scp.jpg?raw=true" alt="Satyadev College Logo" class="foot-logo">
+        <div>
+          <strong>PharmaElevate</strong><br>
+          Satyadev College of Pharmacy — Varanasi
+        </div>
+      </div>
+
+      <div class="footer-right">
+        <div class="small">© 2025 PharmaElevate — Developed by Ayush & Saksham</div>
+        <div class="footer-links">
+          <a href="https://github.com/Ayuxhgpt" target="_blank">GitHub</a> · <a href="#">Privacy</a> · <a href="#">Terms</a>
+        </div>
+      </div>
+    </div>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- Scripts -->
+  <script src="script.js" defer></script>
 </body>
 </html>
