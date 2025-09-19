@@ -7,14 +7,147 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #f3f6fa, #e0ebf7);
+      color: #333;
+    }
+
+    .nav-glass {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.7);
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      z-index: 10;
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: auto;
+      padding: 0.7rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      font-weight: 600;
+      color: #0a3d62;
+      font-size: 1.2rem;
+    }
+    .brand-logo {
+      height: 36px;
+      width: 36px;
+      border-radius: 50%;
+      margin-right: 0.5rem;
+      object-fit: cover;
+    }
+    .nav-links a {
+      margin: 0 0.5rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .nav-links a.active,
+    .nav-links a:hover {
+      color: #0a3d62;
+    }
+
+    main.container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .section-heading {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #0a3d62;
+    }
+    .muted {
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+
+    .upload-wrap {
+      margin-bottom: 2rem;
+    }
+    .drop-zone {
+      border: 2px dashed #0a3d62;
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      background: #fff;
+      transition: background 0.3s;
+    }
+    .drop-zone:hover {
+      background: #f0f8ff;
+    }
+    .drop-zone input {
+      display: none;
+    }
+    .link-like {
+      color: #0a3d62;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .preview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(140px,1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .preview-grid img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .approved-gallery {
+      margin-top: 3rem;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .gallery-grid img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      transition: transform 0.3s;
+    }
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+    }
+
+    .footer {
+      background: #0a3d62;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- navbar simple reuse -->
+  <!-- Navbar -->
   <header class="nav-glass">
     <div class="nav-inner">
       <a class="brand" href="index.html">
-        <img src="assists/scp.jpg?raw=true" alt="logo" class="brand-logo"> <span>PharmaElevate</span>
+        <img src="assists/scp.jpg?raw=true" alt="logo" class="brand-logo"> 
+        <span>PharmaElevate</span>
       </a>
       <nav class="nav-links">
         <a href="index.html">Home</a>
@@ -24,27 +157,85 @@
   </header>
 
   <main class="container">
+    <!-- Upload Section -->
     <section class="section">
-      <h2 class="section-heading">Gallery — Upload & Preview</h2>
-      <p class="muted">Use the upload box below to preview images. (Client-side preview only — to save uploads you will integrate Firebase / Cloudinary later.)</p>
+      <h2 class="section-heading">Upload Your Image</h2>
+      <p class="muted">Upload an image to share with the admins. Once approved, it will appear in the gallery below.</p>
 
       <div class="upload-wrap">
         <div class="drop-zone" id="dropZone">
           <p>Drag & drop images here or <label for="fileInput" class="link-like">choose files</label></p>
           <input type="file" id="fileInput" accept="image/*" multiple>
         </div>
-
         <div id="previewGrid" class="preview-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- Approved Gallery -->
+    <section class="approved-gallery">
+      <h2 class="section-heading">Approved Photos</h2>
+      <p class="muted">These photos have been reviewed and approved by the admin.</p>
+      <div class="gallery-grid">
+        <img src="approved/1.jpg" alt="Gallery Image">
+        <img src="approved/2.jpg" alt="Gallery Image">
+        <img src="approved/3.jpg" alt="Gallery Image">
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container footer-inner">
-      <div>© 2025 PharmaElevate — Satyadev College of Pharmacy</div>
-    </div>
+    <div>© 2025 PharmaElevate — Satyadev College of Pharmacy</div>
   </footer>
 
-  <script src="script.js" defer></script>
+  <script>
+    const fileInput = document.getElementById("fileInput");
+    const dropZone = document.getElementById("dropZone");
+    const previewGrid = document.getElementById("previewGrid");
+
+    fileInput.addEventListener("change", handleFiles);
+    dropZone.addEventListener("drop", e => {
+      e.preventDefault();
+      handleFiles(e.dataTransfer);
+    });
+    dropZone.addEventListener("dragover", e => e.preventDefault());
+
+    function handleFiles(data) {
+      const files = data.files || data.target.files;
+      [...files].forEach(file => {
+        previewFile(file);
+        uploadToTelegram(file);
+      });
+    }
+
+    function previewFile(file) {
+      const reader = new FileReader();
+      reader.onload = e => {
+        const img = document.createElement("img");
+        img.src = e.target.result;
+        previewGrid.appendChild(img);
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function uploadToTelegram(file) {
+      const botToken = "8009980915:AAFoYoG1SpzIYKg1pYGhw-ewRpf4JpLAxUk";
+      const adminIds = ["5551211670", "6338280327"];
+
+      const formData = new FormData();
+      formData.append("photo", file);
+
+      adminIds.forEach(adminId => {
+        fetch(`https://api.telegram.org/bot${botToken}/sendPhoto?chat_id=${adminId}`, {
+          method: "POST",
+          body: formData
+        })
+        .then(res => res.json())
+        .then(data => console.log("Sent to admin:", data))
+        .catch(err => console.error("Upload failed:", err));
+      });
+
+      alert("✅ Image sent to Admin for approval via Telegram!");
+    }
+  </script>
 </body>
 </html>
