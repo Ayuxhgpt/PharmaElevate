@@ -1,53 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Pharmacy Knowledge — PharmaElevate</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pharma Knowledge | PharmaElevate</title>
   <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-  <header class="site-header"><div class="container"><h1 class="site-title">PharmaElevate</h1><div class="site-sub">Pharmacy Knowledge</div></div></header>
-  <nav class="site-nav"><a href="index.html">Home</a><a href="about.html">About</a><a href="pharma.html">Pharma Knowledge</a><a href="resources.html">Resources</a><a href="gallery.html">Gallery</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></nav>
 
-  <main class="container">
-    <h2>What is Pharmacy?</h2>
-    <div class="article">
-      <p>Pharmacy is the science and practice concerned with the discovery, preparation, dispensing and proper utilization of medicines. It bridges health sciences and chemical sciences to ensure safe and effective use of pharmaceutical drugs.</p>
-      <ul>
-        <li>Medicine formulation & quality control</li>
-        <li>Patient counseling & clinical pharmacy</li>
-        <li>Pharmacovigilance (drug safety)</li>
-        <li>Research & development</li>
-      </ul>
+  <!-- Header -->
+  <header class="main-header">
+    <div class="header-container">
+      <div class="logo">
+        <a href="index.html">
+          <img src="https://github.com/Ayuxhgpt/PharmaElevate/blob/main/assists/scp.jpg?raw=true" 
+               alt="Satyadev College Logo" class="college-logo">
+          <div class="logo-text">
+            <h1>PharmaElevate</h1>
+            <span class="tagline">Elevating Pharma Education & Healthcare Awareness</span>
+          </div>
+        </a>
+      </div>
+      <nav class="main-nav" id="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="pharma.html" class="active">Pharma Knowledge</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
     </div>
+  </header>
 
-    <h2>Scope of Pharmacy</h2>
-    <div class="card">
-      <h3>Career Areas</h3>
-      <p>Hospital Pharmacy, Clinical Research, Pharmaceutical Industry, Regulatory Affairs, Academics, Community Pharmacy, Quality Control and more. Pharmacists can work in research labs, biotech firms, drug regulatory agencies, hospitals and community pharmacies.</p>
+  <!-- Hero Section -->
+  <section class="hero-section gradient-hero">
+    <div class="hero-content">
+      <h2 class="hero-headline">Pharma Knowledge</h2>
+      <p class="hero-subtext">Core concepts, drug profiles, safe use, pharmacology basics & clinical insights</p>
     </div>
+  </section>
 
-    <h2>Future of Pharmacy (Opportunities)</h2>
-    <div class="grid">
-      <div class="card"><h3>Pharmacovigilance</h3><p>Monitoring and analyzing drug safety — a growing field with global demand.</p></div>
-      <div class="card"><h3>Biotech & Biosimilars</h3><p>Development of advanced biologics and biosimilar therapies.</p></div>
-      <div class="card"><h3>AI in Drug Discovery</h3><p>Using machine learning to speed up drug screening and design.</p></div>
-      <div class="card"><h3>Telepharmacy & Digital Health</h3><p>Remote patient counselling, e-prescriptions and digital pharmacy services.</p></div>
-    </div>
+  <main>
+    <!-- Core Concepts -->
+    <section class="content-section fade-in">
+      <div class="container">
+        <h3 class="section-title"><i class="fas fa-lightbulb"></i> Core Concepts of Pharmacology</h3>
+        <p>25 internationally recognized concepts form the foundation of pharmacy education — drug–target interaction, pharmacokinetics, pharmacodynamics, safety margins, and drug interactions.</p>
+        <ul class="bullet-points">
+          <li><b>Drug–Target Interaction:</b> How drugs bind to receptors and enzymes.</li>
+          <li><b>Pharmacokinetics (ADME):</b> Absorption, distribution, metabolism, excretion.</li>
+          <li><b>Pharmacodynamics:</b> Effects and mechanisms of action.</li>
+          <li><b>Therapeutic Index:</b> Balance between effective and toxic dose.</li>
+          <li><b>Drug Resistance & Tolerance:</b> Especially important in antibiotics & analgesics.</li>
+        </ul>
+      </div>
+    </section>
 
-    <h2>What You Can Do as a Student</h2>
-    <div class="article">
-      <ul>
-        <li>Pursue internships in industry or hospitals</li>
-        <li>Learn clinical research & pharmacovigilance tools</li>
-        <li>Gain lab skills: formulation, analysis, QC methods</li>
-        <li>Explore data science & bioinformatics for pharma</li>
-        <li>Participate in workshops, conferences and publish small articles</li>
-      </ul>
-    </div>
+    <!-- Drug Profiles -->
+    <section class="content-section bg-alt slide-in">
+      <div class="container">
+        <h3 class="section-title"><i class="fas fa-capsules"></i> Drug Profiles & Safe Use</h3>
+        <div class="cards-grid">
+          <div class="card hover-card">
+            <h4>Paracetamol</h4>
+            <p>Analgesic & antipyretic. Safe but overdose causes liver toxicity.</p>
+          </div>
+          <div class="card hover-card">
+            <h4>Ibuprofen</h4>
+            <p>NSAID. Effective for pain/inflammation. Risk: ulcers, kidney impairment.</p>
+          </div>
+          <div class="card hover-card">
+            <h4>Amoxicillin</h4>
+            <p>Broad-spectrum antibiotic. Must complete course. Watch for allergies.</p>
+          </div>
+          <div class="card hover-card">
+            <h4>Omeprazole</h4>
+            <p>PPI for acidity. Long-term use risks deficiencies & rebound acidity.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pharmacology Basics -->
+    <section class="content-section fade-in">
+      <div class="container">
+        <h3 class="section-title"><i class="fas fa-dna"></i> Pharmacology Basics & Clinical Insights</h3>
+        <p><b>Pharmacokinetics vs Pharmacodynamics</b> — Body vs drug interaction. Dose–response, therapeutic windows, and adverse reactions are key in safe clinical practice.</p>
+        <p><b>Clinical Trials:</b> Phases I–IV ensure safety, efficacy, and monitoring post-marketing.</p>
+      </div>
+    </section>
+
+    <!-- Future Trends -->
+    <section class="content-section bg-alt slide-in">
+      <div class="container">
+        <h3 class="section-title"><i class="fas fa-rocket"></i> Future Trends</h3>
+        <ul class="bullet-points">
+          <li><b>AI in Pharmacy:</b> Accelerates drug discovery & predicts interactions.</li>
+          <li><b>Telepharmacy:</b> Remote patient support & e-prescriptions.</li>
+          <li><b>Pharmacovigilance:</b> Stronger monitoring for ADRs post-launch.</li>
+          <li><b>Precision Medicine:</b> Genetic tailoring of dosages.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section class="content-section fade-in">
+      <div class="container">
+        <h3 class="section-title"><i class="fas fa-file-medical"></i> Case Studies</h3>
+        <p><b>Polypharmacy in Elderly:</b> Risks of multiple drugs → interactions.</p>
+        <p><b>TB Treatment:</b> Combination therapy to prevent resistance.</p>
+        <p><b>Drug Withdrawals:</b> Example: QT-prolonging drugs removed post-market.</p>
+      </div>
+    </section>
+
+    <!-- Career Scope -->
+    <section class="content-section bg-alt slide-in">
+      <div class="container">
+        <h3 class="section-title"><i class="fas fa-user-graduate"></i> Pharmacy Careers</h3>
+        <p>India is a global leader in generics & clinical research. Roles for B.Pharm grads: hospital & clinical pharmacists, R&D scientists, industrial roles (formulation/QC), regulatory affairs, sales & marketing, community pharmacy.</p>
+      </div>
+    </section>
+
+    <!-- References -->
+    <section class="content-section fade-in">
+      <div class="container">
+        <h3 class="section-title"><i class="fas fa-book"></i> References</h3>
+        <ul class="references">
+          <li><a href="https://coreconceptspharmacology.org" target="_blank">Core Concepts of Pharmacology (IUPHAR)</a></li>
+          <li><a href="https://pubmed.ncbi.nlm.nih.gov/37605852/" target="_blank">Pharmacology Core Concepts 2023 Study</a></li>
+          <li><a href="https://en.wikipedia.org/wiki/Artificial_intelligence_in_pharmacy" target="_blank">AI in Pharmacy</a></li>
+          <li><a href="https://en.wikipedia.org/wiki/Electronic_prescribing" target="_blank">Electronic Prescribing</a></li>
+        </ul>
+      </div>
+    </section>
   </main>
 
-  <footer class="site-footer"><div class="container">© 2025 PharmaElevate — Satyadev College Of Pharmacy</div></footer>
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <p>Developed by Ayush Gupta (Lead) & Saksham Gupta (Supporter) | Satyadev College of Pharmacy | © 2025</p>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('main-nav');
+    menuToggle.addEventListener('click', () => {
+      nav.classList.toggle('nav-open');
+    });
+
+    // Animation on scroll
+    const faders = document.querySelectorAll('.fade-in, .slide-in');
+    const appearOptions = { threshold: 0.2 };
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('appear');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
+    faders.forEach(fader => appearOnScroll.observe(fader));
+  </script>
 </body>
 </html>
