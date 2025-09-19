@@ -3,95 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PharmaElevate - Elevating Pharma Education</title>
+    <title>PharmaElevate - Your Trusted Pharma Portal</title>
+
+    <meta name="description" content="PharmaElevate is a comprehensive portal for pharmaceutical education, research, and healthcare awareness, offering resources for students and the public.">
+    <meta name="keywords" content="pharma, pharmacy, education, healthcare, awareness, B. Pharma, Satyadev College of Pharmacy, Ayush Gupta, Saksham Gupta">
+
+    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz-4yN6Yp2i9A9n7w-m4-X-7w-0b8-K-9f3Q&s" type="image/x-icon">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
 
     <header class="main-header">
-        <div class="header-container">
+        <nav class="navbar">
             <div class="logo">
-                <a href="#">
-                    <span class="logo-icon"><i class="fas fa-pills"></i></span>
-                    <div class="logo-text">
-                        <h1>PharmaElevate</h1>
-                        <span class="tagline">Elevating Pharma Education & Healthcare Awareness</span>
-                    </div>
-                </a>
+                <a href="#"><i class="fas fa-pills logo-icon"></i> PharmaElevate</a>
             </div>
-            <nav class="main-nav" id="main-nav">
-                <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="pharma.html">Pharma Knowledge</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="events.html">Events</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-            <button class="menu-toggle" id="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="pharma.html">Pharma Knowledge</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
     </header>
 
     <main>
         <section class="hero-section">
-            <div class="hero-content">
-                <h2 class="hero-headline">Welcome to PharmaElevate</h2>
-                <p class="hero-subtext">Your trusted portal for Pharma Learning, Research & Awareness</p>
-                <a href="pharma.html" class="cta-button">Explore More <i class="fas fa-arrow-right"></i></a>
+            <div class="hero-overlay"></div>
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="1500">
+                <h1 class="hero-title">Welcome to PharmaElevate</h1>
+                <p class="hero-subtitle">Your trusted portal for Pharma Learning, Research & Awareness.</p>
+                <a href="#highlights" class="cta-button">Explore Our Mission <i class="fas fa-arrow-right"></i></a>
             </div>
         </section>
 
-        <section class="intro-section">
+        <section class="section about-section" data-aos="fade-up">
             <div class="container">
-                <h3 class="section-title">About Our Project</h3>
-                <p class="intro-text">PharmaElevate is a B. Pharma project showcasing the vast scope, promising future, and crucial role of pharmacy in modern healthcare. We aim to be a comprehensive resource for students and a beacon for public health awareness.</p>
+                <div class="content-wrapper">
+                    <div class="text-content">
+                        <h2 class="section-title">About PharmaElevate</h2>
+                        <p>PharmaElevate is a passion project by B. Pharma students dedicated to showcasing the vast scope, promising future, and crucial role of pharmacy in modern healthcare. Our mission is to bridge the gap between academic knowledge and public awareness, making complex pharmaceutical concepts accessible to everyone.</p>
+                        <ul class="about-points">
+                            <li><i class="fas fa-check-circle"></i> A platform for educational resources.</li>
+                            <li><i class="fas fa-check-circle"></i> A hub for public healthcare awareness.</li>
+                            <li><i class="fas fa-check-circle"></i> Showcasing the future of pharmacy.</li>
+                        </ul>
+                    </div>
+                    <div class="image-content" data-aos="zoom-in" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1576092762791-2495d038251e?q=80&w=2070&auto=format&fit=crop" alt="Pharmacist working in a lab">
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="highlights-section">
+        <section class="section featured-articles-section" data-aos="fade-up">
             <div class="container">
-                <h3 class="section-title">Key Highlights</h3>
-                <div class="highlight-cards">
-                    <div class="card card-1 fade-in">
-                        <div class="card-icon"><i class="fas fa-book-medical"></i></div>
-                        <h4 class="card-title">Pharma Knowledge</h4>
-                        <p>Dive deep into pharmaceutical concepts, drug information, and the science behind medicine.</p>
-                        <a href="pharma.html" class="card-link">Learn More <i class="fas fa-chevron-right"></i></a>
+                <h2 class="section-title">Featured Articles & Awareness</h2>
+                <div class="articles-grid">
+                    <div class="article-card" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1588776884879-c567a57a8292?q=80&w=2070&auto=format&fit=crop" alt="Future of Pharmacy">
+                        <h3>The Future of Pharmacy: AI and Personalized Medicine</h3>
+                        <p>Explore how artificial intelligence is revolutionizing drug discovery, patient care, and personalized treatment plans.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="card card-2 fade-in">
-                        <div class="card-icon"><i class="fas fa-user-graduate"></i></div>
-                        <h4 class="card-title">Student Resources</h4>
-                        <p>Access valuable notes, past papers, and study materials to excel in your pharmacy curriculum.</p>
-                        <a href="services.html" class="card-link">View Resources <i class="fas fa-chevron-right"></i></a>
+                    <div class="article-card" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1780&auto=format&fit=crop" alt="Vaccination importance">
+                        <h3>Understanding Vaccination: A Key to Public Health</h3>
+                        <p>Learn about the science behind vaccines and their critical role in preventing infectious diseases and ensuring community well-being.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="card card-3 fade-in">
-                        <div class="card-icon"><i class="fas fa-heartbeat"></i></div>
-                        <h4 class="card-title">Healthcare Awareness</h4>
-                        <p>Discover infographics and articles on safe medicine use, vaccination, and public health topics.</p>
-                        <a href="pharma.html#awareness" class="card-link">Read More <i class="fas fa-chevron-right"></i></a>
+                    <div class="article-card" data-aos="fade-up" data-aos-delay="300">
+                        <img src="https://images.unsplash.com/photo-1549646467-152e921d7b00?q=80&w=2070&auto=format&fit=crop" alt="Antibiotics misuse">
+                        <h3>The Dangers of Antibiotic Misuse</h3>
+                        <p>Discover why taking antibiotics without a prescription is dangerous and contributes to the growing global crisis of drug resistance.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section cta-section" data-aos="zoom-in">
+            <div class="container text-center">
+                <h2>Ready to Elevate Your Knowledge?</h2>
+                <p>Dive into our vast library of resources and explore the exciting world of pharmacy.</p>
+                <a href="pharma.html" class="cta-button secondary-cta">Get Started Today</a>
+            </div>
+        </section>
+
+        <section class="section testimonials-section" data-aos="fade-up">
+            <div class="container">
+                <h2 class="section-title">What People Say About Us</h2>
+                <div class="testimonial-card">
+                    <p class="quote">"PharmaElevate is an outstanding resource for anyone interested in healthcare. The content is well-researched, and the design is incredibly professional. A great project!"</p>
+                    <div class="author-info">
+                        <img src="https://via.placeholder.com/60" alt="Dr. Alok Verma">
+                        <div>
+                            <h4>Dr. Alok Verma</h4>
+                            <p>Head of Pharmacy, New Delhi University</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="main-footer">
-        <div class="container">
-            <p>Developed by Ayush Gupta (Lead) & Saksham Gupta (Supporter) | Satyadev College of Pharmacy | © 2025</p>
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <div class="logo">
+                    <a href="#"><i class="fas fa-pills logo-icon"></i> PharmaElevate</a>
+                </div>
+                <p>Elevating Pharma Education & Healthcare Awareness</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="services.html">Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Connect With Us</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Developed by Ayush Gupta (Lead) & Saksham Gupta (Supporter) | Satyadev College of Pharmacy | © 2025 PharmaElevate</p>
         </div>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        const menuToggle = document.getElementById('menu-toggle');
-        const nav = document.getElementById('main-nav');
-        menuToggle.addEventListener('click', () => {
-            nav.classList.toggle('nav-open');
+        AOS.init();
+
+        // Hamburger menu functionality
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('nav-active');
+            hamburger.classList.toggle('toggle');
         });
     </script>
 </body>
