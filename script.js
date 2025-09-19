@@ -1,86 +1,97 @@
-/* script.js - interactivity for PharmaElevate */
+// script.js
 
-/* ====== Lightbox for gallery images ====== */
-document.addEventListener('click', function(e){
-  if(e.target.matches('.gallery img')){
-    const src = e.target.getAttribute('src');
-    openLightbox(src);
-  }
-});
-function openLightbox(src){
-  let lb = document.createElement('div');
-  lb.style = `position:fixed;inset:0;background:rgba(0,0,0,0.85);display:flex;align-items:center;justify-content:center;z-index:9999;`;
-  lb.innerHTML = `<div style="max-width:90%;max-height:90%"><img src="${src}" style="max-width:100%;max-height:90vh;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.6)"></div>`;
-  lb.addEventListener('click', ()=> lb.remove());
-  document.body.appendChild(lb);
-}
+document.addEventListener('DOMContentLoaded', () => {
 
-/* ====== Drug Search ====== */
-const drugs = [
-  {name:"Paracetamol", uses:"Fever, mild pain", dose:"500 mg every 4-6 hours (adult)", side:"Nausea, liver risk in overdose"},
-  {name:"Ibuprofen", uses:"Pain, inflammation", dose:"200-400 mg every 4-6 hours", side:"Gastric irritation"},
-  {name:"Cetirizine", uses:"Allergy", dose:"10 mg once daily", side:"Drowsiness"},
-  {name:"Amoxicillin", uses:"Bacterial infections", dose:"Depends on infection; consult doctor", side:"Allergic reactions possible"},
-  {name:"Omeprazole", uses:"Acid reflux", dose:"20-40 mg once daily", side:"Headache, abdominal pain"}
-];
-function renderDrugs(list){
-  const container = document.getElementById('drug-list');
-  if(!container) return;
-  container.innerHTML = '';
-  list.forEach(d=>{
-    const el = document.createElement('div');
-    el.className = 'drug';
-    el.innerHTML = `<h4>${d.name}</h4><small>${d.uses}</small><p style="margin:10px 0 0"><strong>Typical dose:</strong> ${d.dose}<br/><strong>Side effects:</strong> ${d.side}</p>`;
-    container.appendChild(el);
-  });
-}
-document.addEventListener('DOMContentLoaded', ()=> {
-  renderDrugs(drugs);
-  const search = document.getElementById('drug-search');
-  if(search){
-    search.addEventListener('input', (e)=>{
-      const q = e.target.value.toLowerCase().trim();
-      const filtered = drugs.filter(d => d.name.toLowerCase().includes(q) || d.uses.toLowerCase().includes(q));
-      renderDrugs(filtered);
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  if (menuBtn && navLinks) {
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
     });
   }
-});
 
-/* ====== Simple Quiz ====== */
-const quizData = [
-  {q:"Paracetamol is mainly used for:", a:["Allergy","Fever","Infection"], correct:1},
-  {q:"Which is an anti-inflammatory drug?", a:["Cetirizine","Ibuprofen","Omeprazole"], correct:1},
-  {q:"Pharmacovigilance deals with:", a:["Drug promotion","Drug safety monitoring","Drug manufacturing"], correct:1},
-];
-function startQuiz(){
-  const qbox = document.getElementById('quiz-box');
-  if(!qbox) return;
-  qbox.innerHTML = '';
-  let score=0;
-  quizData.forEach((item, idx)=>{
-    const div = document.createElement('div');
-    div.className='quiz';
-    div.innerHTML = `<p><strong>Q${idx+1}.</strong> ${item.q}</p>`;
-    item.a.forEach((opt,i)=>{
-      const id = `q${idx}_opt${i}`;
-      div.innerHTML += `<div style="margin:6px 0"><input type="radio" name="q${idx}" id="${id}" value="${i}"> <label for="${id}">${opt}</label></div>`;
-    });
-    qbox.appendChild(div);
+  // Animated hero word sequence (simple stagger)
+  const words = document.querySelectorAll('.anim-word');
+  words.forEach((w,i) => {
+    w.style.animationDelay = (i * 0.25) + 's';
   });
-  const btn = document.createElement('button');
-  btn.textContent='Submit Quiz';
-  btn.addEventListener('click', ()=>{
-    quizData.forEach((item, idx)=>{
-      const radios = document.getElementsByName(`q${idx}`);
-      for(const r of radios){
-        if(r.checked && parseInt(r.value)===item.correct) score++;
+
+  // Counters - animate numbers
+  const counters = document.querySelectorAll('.count');
+  counters.forEach(counter => {
+    const target = +counter.dataset.target || 0;
+    let current = 0;
+    const step = Math.max(1, Math.floor(target / 60));
+    const update = () => {
+      current += step;
+      if (current >= target) {
+        counter.textContent = target;
+      } else {
+        counter.textContent = current;
+        requestAnimationFrame(update);
       }
-    });
-    const res = document.getElementById('quiz-result');
-    res.textContent = `You scored ${score} out of ${quizData.length}`;
+    };
+    // start when visible
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          update();
+          obs.disconnect();
+        }
+      });
+    }, {threshold:0.6});
+    obs.observe(counter);
   });
-  qbox.appendChild(btn);
-}
 
-/* Run on pages with startQuiz container */
-document.addEventListener('DOMContentLoaded', ()=> startQuiz());
+  // Drop-zone & file preview (gallery page)
+  const dropZone = document.getElementById('dropZone');
+  const fileInput = document.getElementById('fileInput');
+  const previewGrid = document.getElementById('previewGrid');
+
+  function handleFiles(files){
+    if (!previewGrid) return;
+    previewGrid.innerHTML = '';
+    Array.from(files).forEach(file => {
+      if (!file.type.startsWith('image/')) return;
+      const reader = new FileReader();
+      reader.onload = e => {
+        const img = document.createElement('img');
+        img.src = e.target.result;
+        img.alt = file.name;
+        img.tabIndex = 0;
+        img.className = 'preview-img';
+        img.addEventListener('click', () => openLightbox(e.target.result));
+        previewGrid.appendChild(img);
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
+  if (dropZone){
+    dropZone.addEventListener('click', () => fileInput && fileInput.click());
+    dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('dragover'); });
+    dropZone.addEventListener('dragleave', e => { dropZone.classList.remove('dragover'); });
+    dropZone.addEventListener('drop', e => {
+      e.preventDefault(); dropZone.classList.remove('dragover');
+      const dt = e.dataTransfer;
+      if (dt && dt.files) handleFiles(dt.files);
+    });
+  }
+  if (fileInput){
+    fileInput.addEventListener('change', e => handleFiles(e.target.files));
+  }
+
+  // Lightbox
+  function openLightbox(src){
+    const overlay = document.createElement('div');
+    overlay.className = 'lightbox-overlay';
+    overlay.style = 'position:fixed;inset:0;background:rgba(0,0,0,0.85);display:flex;align-items:center;justify-content:center;z-index:9999';
+    overlay.innerHTML = `<img src="${src}" style="max-width:92%;max-height:90vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.6)"/>`;
+    overlay.addEventListener('click', () => overlay.remove());
+    document.body.appendChild(overlay);
+  }
+
+  // Expose to global for inline calls if needed
+  window.openLightbox = openLightbox;
+});
