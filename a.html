@@ -3,186 +3,164 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GenCapsule | Pharmacy Project Showcase</title>
+  <title>GenCapsule – Project Showcase</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      background: linear-gradient(135deg, #f0f8ff, #e6f0ff);
-      color: #222;
-    }
-    header {
-      text-align: center;
-      padding: 60px 20px;
-      background: #004aad;
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body { background: #f5f8ff; color: #333; line-height: 1.6; }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #3b82f6, #9333ea);
       color: white;
-    }
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-      letter-spacing: 1px;
-    }
-    header p {
-      font-size: 1.2rem;
-      opacity: 0.9;
-    }
-    .projects, .team, .mentors {
-      max-width: 1100px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-    .project-card {
-      background: white;
-      border-radius: 15px;
-      padding: 25px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      margin-bottom: 30px;
-      transition: transform 0.3s ease;
-    }
-    .project-card:hover {
-      transform: translateY(-8px);
-    }
-    .project-card h2 {
-      color: #0073e6;
-      margin-bottom: 10px;
-    }
-    /* Team + Mentor section */
-    h2.section-title {
       text-align: center;
-      margin-bottom: 30px;
-      color: #004aad;
+      padding: 5rem 2rem;
+      border-bottom-left-radius: 2rem;
+      border-bottom-right-radius: 2rem;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+    .hero h1 { font-size: 3rem; font-weight: 700; margin-bottom: 1rem; }
+    .hero p { font-size: 1.2rem; opacity: 0.9; }
+
+    /* Sections */
+    .section-title {
+      text-align: center;
       font-size: 2rem;
+      margin: 3rem 0 2rem;
+      color: #222;
+      font-weight: 600;
     }
-    .members, .mentors-grid {
+    .container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 25px;
+      gap: 2rem;
+      padding: 0 2rem;
     }
-    .member, .mentor {
+
+    /* Mentors */
+    .mentors, .members {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      justify-items: center;
+    }
+    .card {
       background: white;
-      border-radius: 15px;
-      padding: 20px;
+      border-radius: 1.5rem;
+      padding: 1.5rem;
       text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       transition: transform 0.3s ease;
     }
-    .member:hover, .mentor:hover {
-      transform: scale(1.05);
-    }
-    .member img, .mentor img {
-      width: 110px;
-      height: 110px;
+    .card:hover { transform: translateY(-8px); }
+    .card img {
+      width: 120px; height: 120px;
       border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 15px;
-      border: 3px solid #004aad;
+      margin-bottom: 1rem;
+      border: 4px solid #3b82f6;
     }
-    .member h3, .mentor h3 {
-      margin: 10px 0 5px;
-      font-size: 1.2rem;
-      color: #004aad;
-    }
-    .member p, .mentor p {
-      font-size: 0.95rem;
-      color: #555;
-    }
+    .card h3 { margin: 0.5rem 0; font-size: 1.2rem; font-weight: 600; }
+    .card p { font-size: 0.95rem; color: #555; }
+
+    /* Insta */
     .insta {
-      margin-top: 8px;
       display: inline-block;
-      color: #e1306c;
-      text-decoration: none;
-      font-size: 0.9rem;
+      margin-top: 0.8rem;
+      color: #9333ea;
       font-weight: 500;
+      text-decoration: none;
+      transition: color 0.3s;
     }
+    .insta:hover { color: #3b82f6; }
+
+    /* Footer */
     footer {
       text-align: center;
-      padding: 20px;
-      background: #f1f5ff;
-      font-size: 0.9rem;
-      color: #444;
-    }
-    footer strong {
-      color: #004aad;
+      padding: 1.5rem;
+      background: #3b82f6;
+      color: white;
+      margin-top: 3rem;
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
     }
   </style>
 </head>
 <body>
 
-  <header>
+  <!-- Hero -->
+  <section class="hero">
     <h1>GenCapsule</h1>
-    <p>Innovating Pharma Projects | Poster & Kidney Model Showcase</p>
-  </header>
-
-  <!-- Projects -->
-  <section class="projects">
-    <div class="project-card">
-      <h2>Poster: Role of Pharmacy in Public Health</h2>
-      <p>A creative poster highlighting how pharmacy contributes to public health, medicine safety, and patient awareness.</p>
-    </div>
-    <div class="project-card">
-      <h2>Model: Human Kidney Structure</h2>
-      <p>An academic 3D model of the kidney to demonstrate structure, function, and medical relevance in pharmacy education.</p>
-    </div>
+    <p>Innovative Pharmacy Project – Poster & Model Showcase</p>
   </section>
 
   <!-- Mentors -->
-  <section class="mentors">
-    <h2 class="section-title">Guides & Mentors</h2>
-    <div class="mentors-grid">
-      <div class="mentor">
-        <img src="https://github.com/Ayuxhgpt/PharmaElevate/blob/main/assists/scp.jpg?raw=true" alt="Prof. Sumit Singh">
+  <section>
+    <h2 class="section-title">Our Mentors</h2>
+    <div class="container mentors">
+      <div class="card">
+        <img src="https://github.com/Ayuxhgpt/PharmaElevate/blob/main/assists/scp.jpg?raw=true" alt="HOD Sumit Singh">
         <h3>Prof. Sumit Singh</h3>
-        <p>Head of Department, Pharmacy</p>
-        <p>“A constant source of guidance and inspiration throughout this project.”</p>
+        <p>Head of Department – Always guiding us with wisdom and motivation. A true source of inspiration for this project.</p>
       </div>
-      <div class="mentor">
+      <div class="card">
         <img src="https://github.com/Ayuxhgpt/PharmaElevate/blob/main/assists/scp.jpg?raw=true" alt="Prof. Mohammad Imran">
         <h3>Prof. Mohammad Imran</h3>
-        <p>Professor, Pharmacy</p>
-        <p>“His valuable insights and support shaped our project towards excellence.”</p>
+        <p>Professor – Encouraged us to push boundaries and supported us throughout. A mentor who makes learning enjoyable.</p>
       </div>
     </div>
   </section>
 
   <!-- Team -->
-  <section class="team">
+  <section>
     <h2 class="section-title">Meet the GenCapsule Team</h2>
-    <div class="members">
-      <div class="member">
+    <div class="container members">
+
+      <div class="card">
         <img src="https://github.com/Ayuxhgpt/PharmaElevate/blob/main/assists/ayupfp.jpg?raw=true" alt="Ayush Gupta">
         <h3>Ayush Gupta</h3>
-        <p>Research & Concept</p>
-        <a href="#" class="insta">@username</a>
+        <p><strong>Website Developer</strong></p>
+        <p>Created the complete project website with dedication and creativity. Always eager to innovate and bring ideas to life.</p>
+        <a href="https://instagram.com/hey.ayyuuu" target="_blank" class="insta">@hey.ayyuuu</a>
       </div>
-      <div class="member">
+
+      <div class="card">
         <img src="https://github.com/Ayuxhgpt/PharmaElevate/blob/main/assists/sakpfp1.jpg?raw=true" alt="Saksham Gupta">
         <h3>Saksham Gupta</h3>
-        <p>Poster Design</p>
-        <a href="#" class="insta">@username</a>
+        <p><strong>Website & Model Support</strong></p>
+        <p>Helped in website improvements and model development. A supportive teammate with problem-solving skills.</p>
+        <a href="https://instagram.com/sakshamguptax" target="_blank" class="insta">@sakshamguptax</a>
       </div>
-      <div class="member">
+
+      <div class="card">
         <img src="https://github.com/Ayuxhgpt/PharmaElevate/blob/main/assists/sanpfp.jpg?raw=true" alt="Sanket Kumar">
         <h3>Sanket Kumar</h3>
-        <p>Model Preparation</p>
-        <a href="#" class="insta">@username</a>
+        <p><strong>Poster Designer</strong></p>
+        <p>Designed the project poster with creativity and clarity. Known for bringing concepts to life in an artistic way.</p>
+        <a href="#" class="insta">Insta: (Update soon)</a>
       </div>
-      <div class="member">
-        <img src="https://github.com/Ayuxhgpt/PharmaElevate/blob/main/assists/sandpfp.jpg?raw=true" alt="Sandeep Kumar">
-        <h3>Sandeep Kumar</h3>
-        <p>Presentation</p>
-        <a href="#" class="insta">@username</a>
-      </div>
-      <div class="member">
+
+      <div class="card">
         <img src="https://github.com/Ayuxhgpt/PharmaElevate/blob/main/assists/adipfp.jpg?raw=true" alt="Aditya Rao">
         <h3>Aditya Rao</h3>
-        <p>Coordinator</p>
-        <a href="#" class="insta">@username</a>
+        <p><strong>Model Creator</strong></p>
+        <p>Built the kidney model with precision and effort. A hardworking member ensuring accuracy and detail in presentation.</p>
+        <a href="#" class="insta">Insta: (Update soon)</a>
       </div>
+
+      <div class="card">
+        <img src="https://github.com/Ayuxhgpt/PharmaElevate/blob/main/assists/sandpfp.jpg?raw=true" alt="Sandeep Kumar">
+        <h3>Sandeep Kumar</h3>
+        <p><strong>Contributor</strong></p>
+        <p>Actively contributed in multiple areas of the project. A reliable team player always ready to support everyone.</p>
+        <a href="#" class="insta">Insta: (Update soon)</a>
+      </div>
+
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
-    <p>© 2025 <strong>GenCapsule</strong> | College of Pharmacy</p>
+    <p>© 2025 GenCapsule Project | Created with passion by our team</p>
   </footer>
 
 </body>
