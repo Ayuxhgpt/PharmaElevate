@@ -11,16 +11,58 @@
 
     /* Hero */
     .hero {
+      position: relative;
+      overflow: hidden;
       background: linear-gradient(135deg, #3b82f6, #9333ea);
       color: white;
       text-align: center;
-      padding: 5rem 2rem;
+      padding: 6rem 2rem;
       border-bottom-left-radius: 2rem;
       border-bottom-right-radius: 2rem;
       box-shadow: 0 6px 15px rgba(0,0,0,0.2);
     }
-    .hero h1 { font-size: 3rem; font-weight: 700; margin-bottom: 1rem; }
-    .hero p { font-size: 1.2rem; opacity: 0.9; }
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      opacity: 0.95;
+      margin-bottom: 2rem;
+    }
+    .hero .btn {
+      display: inline-block;
+      padding: 0.8rem 1.8rem;
+      border-radius: 50px;
+      background: white;
+      color: #3b82f6;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .hero .btn:hover {
+      background: #222;
+      color: white;
+    }
+
+    /* Floating decorative circles */
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.25;
+      animation: float 10s infinite ease-in-out;
+    }
+    .circle1 { width: 200px; height: 200px; top: -50px; left: -50px; background: #60a5fa; }
+    .circle2 { width: 300px; height: 300px; bottom: -150px; right: -150px; background: #c084fc; }
+    .circle3 { width: 150px; height: 150px; top: 20%; right: 10%; background: #9333ea; }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
+    }
 
     /* Sections */
     .section-title {
@@ -36,7 +78,7 @@
       padding: 0 2rem;
     }
 
-    /* Mentors */
+    /* Mentors & Members */
     .mentors, .members {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -89,8 +131,12 @@
 
   <!-- Hero -->
   <section class="hero">
+    <div class="circle circle1"></div>
+    <div class="circle circle2"></div>
+    <div class="circle circle3"></div>
     <h1>GenCapsule</h1>
     <p>Innovative Pharmacy Project – Poster & Model Showcase</p>
+    <a href="#team" class="btn">Meet the Team</a>
   </section>
 
   <!-- Mentors -->
@@ -111,7 +157,7 @@
   </section>
 
   <!-- Team -->
-  <section>
+  <section id="team">
     <h2 class="section-title">Meet the GenCapsule Team</h2>
     <div class="container members">
 
