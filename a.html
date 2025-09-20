@@ -6,132 +6,57 @@
 <title>GenCapsule – Pharmacy Project Showcase</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
-/* ------------------ Global Styles ------------------ */
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-body { background: #f5f8ff; color: #333; line-height: 1.6; overflow-x: hidden; }
-a { text-decoration: none; }
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
+body { background:#f5f8ff; color:#333; line-height:1.6; overflow-x:hidden; }
 
-/* ------------------ Hero Section ------------------ */
+/* Hero */
 header.hero {
-  position: relative;
-  overflow: hidden;
+  position: relative; overflow:hidden;
   background: linear-gradient(135deg, #3b82f6, #9333ea);
-  color: white;
-  text-align: center;
-  padding: 8rem 2rem 6rem;
+  color:white; text-align:center;
+  padding:5rem 1.5rem 4rem;
 }
-header.hero h1 {
-  font-size: 4rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  letter-spacing: 2px;
-  z-index: 2;
-  position: relative;
-}
-header.hero p {
-  font-size: 1.4rem;
-  opacity: 0.9;
-  margin-bottom: 2rem;
-  position: relative;
-  z-index: 2;
-}
-header.hero .btn {
-  display: inline-block;
-  padding: 1rem 2rem;
-  border-radius: 50px;
-  background: white;
-  color: #3b82f6;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  position: relative;
-  z-index: 2;
-}
-header.hero .btn:hover { background: #222; color: white; }
+header.hero h1 { font-size:3rem; font-weight:700; margin-bottom:1rem; letter-spacing:1px; position:relative; z-index:2; }
+header.hero p { font-size:1.1rem; opacity:0.9; margin-bottom:1.5rem; position:relative; z-index:2; }
+header.hero .btn { display:inline-block; padding:0.7rem 1.5rem; border-radius:50px; background:white; color:#3b82f6; font-weight:600; font-size:0.95rem; transition:all 0.3s ease; position:relative; z-index:2; }
+header.hero .btn:hover { background:#222; color:white; }
 
-/* Floating circles animation */
-header.hero .circle {
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0.15;
-  animation: float 10s infinite ease-in-out;
-}
-.circle1 { width: 250px; height: 250px; top: -50px; left: -50px; background: #60a5fa; }
-.circle2 { width: 350px; height: 350px; bottom: -150px; right: -150px; background: #c084fc; }
-.circle3 { width: 150px; height: 150px; top: 25%; right: 10%; background: #9333ea; }
-@keyframes float {
-  0%,100%{ transform: translateY(0); }
-  50%{ transform: translateY(-25px); }
-}
+/* Floating circles */
+header.hero .circle { position:absolute; border-radius:50%; opacity:0.15; animation:float 10s infinite ease-in-out; }
+.circle1 { width:200px; height:200px; top:-50px; left:-50px; background:#60a5fa; }
+.circle2 { width:250px; height:250px; bottom:-100px; right:-100px; background:#c084fc; }
+.circle3 { width:120px; height:120px; top:15%; right:8%; background:#9333ea; }
+@keyframes float {0%,100%{transform:translateY(0);}50%{transform:translateY(-20px);}}
 
-/* ------------------ Sections ------------------ */
-.section-title {
-  text-align: center;
-  font-size: 2rem;
-  margin: 3rem 0 2rem;
-  color: #222;
-  font-weight: 600;
-}
-.container { display: grid; gap: 2rem; padding: 0 2rem; }
+/* Sections */
+.section-title { text-align:center; font-size:1.8rem; margin:2rem 0 1.5rem; color:#222; font-weight:600; }
+.container { display:grid; gap:1.5rem; padding:0 1.5rem; }
 
-/* ------------------ Card Styles ------------------ */
-.card {
-  background: white;
-  border-radius: 1.5rem;
-  padding: 1.5rem;
-  text-align: center;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-  position: relative;
-}
-.card:hover { transform: translateY(-8px); }
-.card img {
-  width: 120px; height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 1rem;
-  border: 4px solid #3b82f6;
-}
-.card h3 { margin: 0.5rem 0; font-size: 1.2rem; font-weight: 600; color:#004aad; }
-.card p { font-size: 0.95rem; color: #555; }
-.card .insta {
-  display: inline-block;
-  margin-top: 0.8rem;
-  color: #e1306c;
-  font-weight: 500;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-.card .insta:hover { color: #3b82f6; }
+/* Cards */
+.card { background:white; border-radius:1.2rem; padding:1rem; text-align:center; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition: transform 0.3s ease; position:relative; }
+.card:hover { transform:translateY(-6px); }
+.card img { width:100px; height:100px; border-radius:50%; object-fit:cover; margin-bottom:0.8rem; border:3px solid #3b82f6; }
+.card h3 { margin:0.3rem 0; font-size:1.1rem; font-weight:600; color:#004aad; }
+.card p { font-size:0.9rem; color:#555; margin:0.3rem 0; }
+.card .insta { display:inline-block; margin-top:0.5rem; color:#e1306c; font-weight:500; font-size:0.85rem; }
+.card .insta:hover { color:#3b82f6; }
 
-/* ------------------ Expandable Project Details ------------------ */
-.project-card { cursor: pointer; }
-.project-card .details { display: none; margin-top: 10px; color:#333; font-size:0.95rem; }
+/* Project details expandable */
+.project-card { cursor:pointer; }
+.project-card .details { display:none; margin-top:5px; color:#333; font-size:0.9rem; }
 
-/* ------------------ Footer ------------------ */
-footer {
-  text-align: center;
-  padding: 1.5rem;
-  background: #3b82f6;
-  color: white;
-  margin-top: 3rem;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
-}
+/* Footer */
+footer { text-align:center; padding:1.2rem; background:#3b82f6; color:white; margin-top:2rem; border-radius:1rem 1rem 0 0; }
 
-/* ------------------ Popup ------------------ */
-#popup {
-  position: fixed;
-  top: 20px; left: 50%;
-  transform: translateX(-50%);
-  background: #ff4d4f;
-  color: white;
-  padding: 15px 25px;
-  border-radius: 10px;
-  font-size: 1rem;
-  z-index: 9999;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+/* Popup */
+#popup { position:fixed; top:15px; left:50%; transform:translateX(-50%); background:#ff4d4f; color:white; padding:12px 20px; border-radius:10px; font-size:0.95rem; z-index:9999; opacity:0; transition:opacity 0.3s ease; }
+
+/* ------------------ Responsive ------------------ */
+@media(max-width:1024px){ header.hero h1{font-size:2.5rem;} header.hero p{font-size:1rem;} }
+@media(max-width:768px){ 
+  header.hero { padding:4rem 1rem 3rem; }
+  .container { grid-template-columns: 1fr; }
+  .circle1,.circle2,.circle3{display:none;} /* Hide large circles on mobile */
 }
 </style>
 </head>
@@ -143,7 +68,7 @@ footer {
   <div class="circle circle2"></div>
   <div class="circle circle3"></div>
   <h1>GenCapsule</h1>
-  <p>Innovating Pharmacy Projects | Poster & Kidney Model Showcase</p>
+  <p>Innovative Pharmacy Projects – Poster & Kidney Model Showcase</p>
   <a href="#team" class="btn">Meet the Team</a>
 </header>
 
@@ -153,15 +78,11 @@ footer {
   <div class="container">
     <div class="card project-card" onclick="toggleDetails(this)">
       <h3>Poster: Role of Pharmacy in Public Health</h3>
-      <div class="details">
-        A creative poster highlighting how pharmacy contributes to public health, medicine safety, and patient awareness.
-      </div>
+      <div class="details">A creative poster highlighting pharmacy's role in public health, medicine safety, and patient awareness.</div>
     </div>
     <div class="card project-card" onclick="toggleDetails(this)">
       <h3>Model: Human Kidney Structure</h3>
-      <div class="details">
-        An academic 3D model of the kidney to demonstrate structure, function, and medical relevance in pharmacy education.
-      </div>
+      <div class="details">An academic 3D kidney model demonstrating structure, function, and relevance in pharmacy education.</div>
     </div>
   </div>
 </section>
@@ -173,12 +94,12 @@ footer {
     <div class="card">
       <img src="https://github.com/Ayuxhgpt/PharmaElevate/blob/main/assists/scp.jpg?raw=true" alt="HOD Sumit Singh">
       <h3>Prof. Sumit Singh</h3>
-      <p>Head of Department – Always guiding us with wisdom and motivation. A true source of inspiration.</p>
+      <p>Head of Department – Guiding us with wisdom and motivation. True source of inspiration.</p>
     </div>
     <div class="card">
       <img src="https://github.com/Ayuxhgpt/PharmaElevate/blob/main/assists/scp.jpg?raw=true" alt="Prof. Mohammad Imran">
       <h3>Prof. Mohammad Imran</h3>
-      <p>Professor – Encouraged us to push boundaries and supported us throughout. Learning was enjoyable!</p>
+      <p>Professor – Encouraged us to push boundaries and supported us throughout the project.</p>
     </div>
   </div>
 </section>
@@ -191,8 +112,8 @@ footer {
     <div class="card">
       <img src="https://github.com/Ayuxhgpt/PharmaElevate/blob/main/assists/ayupfp.jpg?raw=true" alt="Ayush Gupta">
       <h3>Ayush Gupta</h3>
-      <p><strong>Website Developer & Poster/Model Support</strong></p>
-      <p>Created the complete project website and helped in poster & model development.</p>
+      <p><strong>Website Developer & Model/Poster Support</strong></p>
+      <p>Created the website and supported poster & kidney model.</p>
       <a href="https://instagram.com/hey.ayyuuu" target="_blank" class="insta">@hey.ayyuuu</a>
     </div>
 
@@ -200,7 +121,7 @@ footer {
       <img src="https://github.com/Ayuxhgpt/PharmaElevate/blob/main/assists/sakpfp1.jpg?raw=true" alt="Saksham Gupta">
       <h3>Saksham Gupta</h3>
       <p><strong>Website & Model Support</strong></p>
-      <p>Assisted in website and model creation, and helped the team wherever needed.</p>
+      <p>Assisted in website and model creation, and supported the team wherever needed.</p>
       <a href="https://instagram.com/sakshamguptax" target="_blank" class="insta">@sakshamguptax</a>
     </div>
 
@@ -208,65 +129,10 @@ footer {
       <img src="https://github.com/Ayuxhgpt/PharmaElevate/blob/main/assists/sanpfp.jpg?raw=true" alt="Sanket Kumar">
       <h3>Sanket Kumar</h3>
       <p><strong>Poster Designer & Model Support</strong></p>
-      <p>Designed the poster creatively and actively contributed to the kidney model.</p>
+      <p>Designed poster creatively and contributed to kidney model development.</p>
       <a href="#" class="insta">Add Insta</a>
     </div>
 
     <div class="card">
       <img src="https://github.com/Ayuxhgpt/PharmaElevate/blob/main/assists/adipfp.jpg?raw=true" alt="Aditya Rao">
-      <h3>Aditya Rao</h3>
-      <p><strong>Model Creator</strong></p>
-      <p>Built the kidney model with precision and attention to detail.</p>
-      <a href="#" class="insta">Add Insta</a>
-    </div>
-
-    <div class="card">
-      <img src="https://github.com/Ayuxhgpt/PharmaElevate/blob/main/assists/sandpfp.jpg?raw=true" alt="Sandeep Kumar">
-      <h3>Sandeep Kumar</h3>
-      <p><strong>Contributor</strong></p>
-      <p>Provided support and helped in multiple areas of the project.</p>
-      <a href="#" class="insta">Add Insta</a>
-    </div>
-
-  </div>
-</section>
-
-<!-- Footer -->
-<footer>
-  <p>© 2025 GenCapsule Project | Created with passion by our team</p>
-</footer>
-
-<!-- Popup -->
-<div id="popup"></div>
-
-<!-- ------------------ Scripts ------------------ -->
-<script>
-// Toggle project details
-function toggleDetails(card){
-  const details = card.querySelector('.details');
-  if(details.style.display === 'block'){ details.style.display = 'none'; }
-  else { details.style.display = 'block'; }
-}
-
-// Anti-download protection
-document.addEventListener('contextmenu', e => {
-  e.preventDefault(); showPopup("🚫 Right-click is disabled!");
-});
-document.addEventListener('keydown', e => {
-  if(e.ctrlKey && ['c','s','u'].includes(e.key.toLowerCase()) || e.key==='PrintScreen'){
-    e.preventDefault(); showPopup("⚠️ Action blocked!");
-  }
-});
-// Disable image drag
-document.querySelectorAll('img').forEach(img => img.setAttribute('draggable','false'));
-
-// Popup function
-function showPopup(message){
-  const popup = document.getElementById('popup');
-  popup.innerText = message;
-  popup.style.opacity = '1';
-  setTimeout(()=>{popup.style.opacity='0';}, 2500);
-}
-</script>
-</body>
-</html>
+      <
