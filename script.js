@@ -1,97 +1,120 @@
-// script.js
+/* Main JS for interactive features:
+   - Mobile menu toggle
+   - Smooth scroll for internal links
+   - Stats counter when visible (IntersectionObserver)
+   - Scroll reveal animations (IntersectionObserver)
+*/
 
-document.addEventListener('DOMContentLoaded', () => {
+// MOBILE MENU
+const menuBtn = document.getElementById('menuBtn');
+const navLinks = document.getElementById('navLinks');
 
-  // Mobile menu toggle
-  const menuBtn = document.getElementById('menuBtn');
-  const navLinks = document.getElementById('navLinks');
-  if (menuBtn && navLinks) {
-    menuBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-    });
-  }
-
-  // Animated hero word sequence (simple stagger)
-  const words = document.querySelectorAll('.anim-word');
-  words.forEach((w,i) => {
-    w.style.animationDelay = (i * 0.25) + 's';
+if (menuBtn && navLinks) {
+  menuBtn.addEventListener('click', () => {
+    const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+    menuBtn.setAttribute('aria-expanded', String(!expanded));
+    navLinks.classList.toggle('show');
   });
 
-  // Counters - animate numbers
-  const counters = document.querySelectorAll('.count');
-  counters.forEach(counter => {
-    const target = +counter.dataset.target || 0;
-    let current = 0;
-    const step = Math.max(1, Math.floor(target / 60));
-    const update = () => {
-      current += step;
-      if (current >= target) {
-        counter.textContent = target;
-      } else {
-        counter.textContent = current;
-        requestAnimationFrame(update);
+  // close menu on link click (mobile)
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('show');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
+
+// SMOOTH SCROLL FOR INTERNAL LINKS
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const href = this.getAttribute('href');
+    if (href.length > 1) {
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
-    };
-    // start when visible
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          update();
-          obs.disconnect();
-        }
-      });
-    }, {threshold:0.6});
-    obs.observe(counter);
+    }
   });
-
-  // Drop-zone & file preview (gallery page)
-  const dropZone = document.getElementById('dropZone');
-  const fileInput = document.getElementById('fileInput');
-  const previewGrid = document.getElementById('previewGrid');
-
-  function handleFiles(files){
-    if (!previewGrid) return;
-    previewGrid.innerHTML = '';
-    Array.from(files).forEach(file => {
-      if (!file.type.startsWith('image/')) return;
-      const reader = new FileReader();
-      reader.onload = e => {
-        const img = document.createElement('img');
-        img.src = e.target.result;
-        img.alt = file.name;
-        img.tabIndex = 0;
-        img.className = 'preview-img';
-        img.addEventListener('click', () => openLightbox(e.target.result));
-        previewGrid.appendChild(img);
-      };
-      reader.readAsDataURL(file);
-    });
-  }
-
-  if (dropZone){
-    dropZone.addEventListener('click', () => fileInput && fileInput.click());
-    dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('dragover'); });
-    dropZone.addEventListener('dragleave', e => { dropZone.classList.remove('dragover'); });
-    dropZone.addEventListener('drop', e => {
-      e.preventDefault(); dropZone.classList.remove('dragover');
-      const dt = e.dataTransfer;
-      if (dt && dt.files) handleFiles(dt.files);
-    });
-  }
-  if (fileInput){
-    fileInput.addEventListener('change', e => handleFiles(e.target.files));
-  }
-
-  // Lightbox
-  function openLightbox(src){
-    const overlay = document.createElement('div');
-    overlay.className = 'lightbox-overlay';
-    overlay.style = 'position:fixed;inset:0;background:rgba(0,0,0,0.85);display:flex;align-items:center;justify-content:center;z-index:9999';
-    overlay.innerHTML = `<img src="${src}" style="max-width:92%;max-height:90vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.6)"/>`;
-    overlay.addEventListener('click', () => overlay.remove());
-    document.body.appendChild(overlay);
-  }
-
-  // Expose to global for inline calls if needed
-  window.openLightbox = openLightbox;
 });
+
+// STATS COUNTER
+const counters = document.querySelectorAll('.count');
+const counterObserverOptions = { root: null, rootMargin: '0px', threshold: 0.45 };
+
+function runCounter(el) {
+  const target = +el.dataset.target;
+  const duration = 1700; // ms
+  const start = 0;
+  const startTime = performance.now();
+
+  function step(now) {
+    const progress = Math.min((now - startTime) / duration, 1);
+    el.textContent = Math.floor(progress * (target - start) + start);
+    if (progress < 1) {
+      requestAnimationFrame(step);
+    } else {
+      el.textContent = target;
+    }
+  }
+  requestAnimationFrame(step);
+}
+
+const counterObserver = new IntersectionObserver((entries, obs) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      if (!el.classList.contains('counted')) {
+        runCounter(el);
+        el.classList.add('counted');
+      }
+      obs.unobserve(el);
+    }
+  });
+}, counterObserverOptions);
+
+counters.forEach(c => counterObserver.observe(c));
+
+// SCROLL REVEAL FOR .reveal ELEMENTS
+const revealElements = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.18 });
+
+revealElements.forEach(el => revealObserver.observe(el));
+
+// ACTIVE NAV LINK ON SCROLL
+const navAnchors = document.querySelectorAll('.nav-links a');
+const sections = Array.from(navAnchors).map(a => {
+  const href = a.getAttribute('href');
+  return href.startsWith('#') ? document.querySelector(href) : null;
+});
+
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  sections.forEach((sec, idx) => {
+    if (!sec) return;
+    const top = sec.offsetTop - 120;
+    const bottom = top + sec.offsetHeight;
+    if (y >= top && y < bottom) {
+      navAnchors.forEach(a => a.classList.remove('active'));
+      navAnchors[idx].classList.add('active');
+    }
+  });
+});
+
+// Accessibility: reduce motion respect
+const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+if (mediaQuery.matches) {
+  // remove animations by quickly showing reveal elements and setting counters instantly
+  document.querySelectorAll('.reveal').forEach(r => r.classList.add('visible'));
+  document.querySelectorAll('.count').forEach(c => {
+    c.textContent = c.dataset.target;
+  });
+}
