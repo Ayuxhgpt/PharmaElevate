@@ -30,7 +30,7 @@ header.hero .circle { position:absolute; border-radius:50%; opacity:0.15; animat
 
 /* Sections */
 .section-title { text-align:center; font-size:1.8rem; margin:2rem 0 1.5rem; color:#222; font-weight:600; }
-.container { display:grid; gap:1.5rem; padding:0 1.5rem; }
+.container { display:grid; gap:1.5rem; padding:0 1.5rem; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
 
 /* Cards */
 .card { background:white; border-radius:1.2rem; padding:1rem; text-align:center; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition: transform 0.3s ease; position:relative; }
@@ -51,12 +51,12 @@ footer { text-align:center; padding:1.2rem; background:#3b82f6; color:white; mar
 /* Popup */
 #popup { position:fixed; top:15px; left:50%; transform:translateX(-50%); background:#ff4d4f; color:white; padding:12px 20px; border-radius:10px; font-size:0.95rem; z-index:9999; opacity:0; transition:opacity 0.3s ease; }
 
-/* ------------------ Responsive ------------------ */
+/* Responsive */
 @media(max-width:1024px){ header.hero h1{font-size:2.5rem;} header.hero p{font-size:1rem;} }
 @media(max-width:768px){ 
   header.hero { padding:4rem 1rem 3rem; }
+  .circle1,.circle2,.circle3{display:none;}
   .container { grid-template-columns: 1fr; }
-  .circle1,.circle2,.circle3{display:none;} /* Hide large circles on mobile */
 }
 </style>
 </head>
@@ -108,7 +108,6 @@ footer { text-align:center; padding:1.2rem; background:#3b82f6; color:white; mar
 <section id="team">
   <h2 class="section-title">Meet the GenCapsule Team</h2>
   <div class="container members">
-
     <div class="card">
       <img src="https://github.com/Ayuxhgpt/PharmaElevate/blob/main/assists/ayupfp.jpg?raw=true" alt="Ayush Gupta">
       <h3>Ayush Gupta</h3>
@@ -116,15 +115,13 @@ footer { text-align:center; padding:1.2rem; background:#3b82f6; color:white; mar
       <p>Created the website and supported poster & kidney model.</p>
       <a href="https://instagram.com/hey.ayyuuu" target="_blank" class="insta">@hey.ayyuuu</a>
     </div>
-
     <div class="card">
       <img src="https://github.com/Ayuxhgpt/PharmaElevate/blob/main/assists/sakpfp1.jpg?raw=true" alt="Saksham Gupta">
       <h3>Saksham Gupta</h3>
       <p><strong>Website & Model Support</strong></p>
-      <p>Assisted in website and model creation, and supported the team wherever needed.</p>
+      <p>Assisted in website and model creation, supported the team wherever needed.</p>
       <a href="https://instagram.com/sakshamguptax" target="_blank" class="insta">@sakshamguptax</a>
     </div>
-
     <div class="card">
       <img src="https://github.com/Ayuxhgpt/PharmaElevate/blob/main/assists/sanpfp.jpg?raw=true" alt="Sanket Kumar">
       <h3>Sanket Kumar</h3>
@@ -132,7 +129,54 @@ footer { text-align:center; padding:1.2rem; background:#3b82f6; color:white; mar
       <p>Designed poster creatively and contributed to kidney model development.</p>
       <a href="#" class="insta">Add Insta</a>
     </div>
-
     <div class="card">
       <img src="https://github.com/Ayuxhgpt/PharmaElevate/blob/main/assists/adipfp.jpg?raw=true" alt="Aditya Rao">
-      <
+      <h3>Aditya Rao</h3>
+      <p><strong>Model Creator</strong></p>
+      <p>Built the kidney model with precision and attention to detail.</p>
+      <a href="#" class="insta">Add Insta</a>
+    </div>
+    <div class="card">
+      <img src="https://github.com/Ayuxhgpt/PharmaElevate/blob/main/assists/sandpfp.jpg?raw=true" alt="Sandeep Kumar">
+      <h3>Sandeep Kumar</h3>
+      <p><strong>Contributor</strong></p>
+      <p>Provided support and helped in multiple areas of the project.</p>
+      <a href="#" class="insta">Add Insta</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2025 GenCapsule Project | Created with passion by our team</p>
+</footer>
+
+<!-- Popup -->
+<div id="popup"></div>
+
+<script>
+// Toggle project details
+function toggleDetails(card){
+  const details = card.querySelector('.details');
+  details.style.display = details.style.display === 'block' ? 'none' : 'block';
+}
+
+// Anti-download protection
+document.addEventListener('contextmenu', e => { e.preventDefault(); showPopup("🚫 Right-click is disabled!"); });
+document.addEventListener('keydown', e => {
+  if(e.ctrlKey && ['c','s','u'].includes(e.key.toLowerCase()) || e.key==='PrintScreen'){
+    e.preventDefault(); showPopup("⚠️ Action blocked!");
+  }
+});
+document.querySelectorAll('img').forEach(img => img.setAttribute('draggable','false'));
+
+// Popup function
+function showPopup(message){
+  const popup = document.getElementById('popup');
+  popup.innerText = message;
+  popup.style.opacity = '1';
+  setTimeout(()=>{popup.style.opacity='0';}, 2500);
+}
+</script>
+</body>
+</html>
