@@ -1,281 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GenCapsule | Pharmacy Project Showcase</title>
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      background: linear-gradient(135deg, #f0f8ff, #e6f0ff);
-      color: #222;
-    }
-    /* Hero Section */
-    header {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 80px 20px;
-      background: linear-gradient(135deg, #004aad, #0073e6);
-      color: white;
-      position: relative;
-      overflow: hidden;
-    }
-    header::before {
-      content: "";
-      position: absolute;
-      top: -50px;
-      left: -50px;
-      width: 200px;
-      height: 200px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
-      animation: float 6s ease-in-out infinite;
-    }
-    header::after {
-      content: "";
-      position: absolute;
-      bottom: -60px;
-      right: -60px;
-      width: 250px;
-      height: 250px;
-      background: rgba(255, 255, 255, 0.15);
-      border-radius: 50%;
-      animation: float 8s ease-in-out infinite reverse;
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
-    }
-    header h1 {
-      font-size: 3.5rem;
-      margin-bottom: 15px;
-      letter-spacing: 1.5px;
-      z-index: 2;
-    }
-    header p {
-      font-size: 1.2rem;
-      opacity: 0.95;
-      z-index: 2;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GenCapsule – Pharmacy Project Showcase</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+/* ------------------ Global Styles ------------------ */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+body { background: #f5f8ff; color: #333; line-height: 1.6; overflow-x: hidden; }
+a { text-decoration: none; }
 
-    /* Sections */
-    .projects, .team, .mentors {
-      max-width: 1100px;
-      margin: 50px auto;
-      padding: 0 20px;
-    }
-    .project-card {
-      background: white;
-      border-radius: 15px;
-      padding: 25px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      margin-bottom: 30px;
-      transition: transform 0.3s ease;
-    }
-    .project-card:hover {
-      transform: translateY(-8px);
-    }
-    .project-card h2 {
-      color: #0073e6;
-      margin-bottom: 10px;
-    }
+/* ------------------ Hero Section ------------------ */
+header.hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #3b82f6, #9333ea);
+  color: white;
+  text-align: center;
+  padding: 8rem 2rem 6rem;
+}
+header.hero h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+  z-index: 2;
+  position: relative;
+}
+header.hero p {
+  font-size: 1.4rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+}
+header.hero .btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  background: white;
+  color: #3b82f6;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+header.hero .btn:hover { background: #222; color: white; }
 
-    /* Team + Mentor section */
-    h2.section-title {
-      text-align: center;
-      margin-bottom: 30px;
-      color: #004aad;
-      font-size: 2rem;
-    }
-    .members, .mentors-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 25px;
-    }
-    .member, .mentor {
-      background: white;
-      border-radius: 15px;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-    .member:hover, .mentor:hover {
-      transform: scale(1.05);
-    }
-    .member img, .mentor img {
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 15px;
-      border: 3px solid #004aad;
-    }
-    .member h3, .mentor h3 {
-      margin: 10px 0 5px;
-      font-size: 1.2rem;
-      color: #004aad;
-    }
-    .member p, .mentor p {
-      font-size: 0.95rem;
-      color: #555;
-    }
-    .insta {
-      margin-top: 8px;
-      display: inline-block;
-      color: #e1306c;
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-    }
+/* Floating circles animation */
+header.hero .circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.15;
+  animation: float 10s infinite ease-in-out;
+}
+.circle1 { width: 250px; height: 250px; top: -50px; left: -50px; background: #60a5fa; }
+.circle2 { width: 350px; height: 350px; bottom: -150px; right: -150px; background: #c084fc; }
+.circle3 { width: 150px; height: 150px; top: 25%; right: 10%; background: #9333ea; }
+@keyframes float {
+  0%,100%{ transform: translateY(0); }
+  50%{ transform: translateY(-25px); }
+}
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #f1f5ff;
-      font-size: 0.9rem;
-      color: #444;
-    }
-    footer strong {
-      color: #004aad;
-    }
-  </style>
+/* ------------------ Sections ------------------ */
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin: 3rem 0 2rem;
+  color: #222;
+  font-weight: 600;
+}
+.container { display: grid; gap: 2rem; padding: 0 2rem; }
+
+/* ------------------ Card Styles ------------------ */
+.card {
+  background: white;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  position: relative;
+}
+.card:hover { transform: translateY(-8px); }
+.card img {
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 4px solid #3b82f6;
+}
+.card h3 { margin: 0.5rem 0; font-size: 1.2rem; font-weight: 600; color:#004aad; }
+.card p { font-size: 0.95rem; color: #555; }
+.card .insta {
+  display: inline-block;
+  margin-top: 0.8rem;
+  color: #e1306c;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.card .insta:hover { color: #3b82f6; }
+
+/* ------------------ Expandable Project Details ------------------ */
+.project-card { cursor: pointer; }
+.project-card .details { display: none; margin-top: 10px; color:#333; font-size:0.95rem; }
+
+/* ------------------ Footer ------------------ */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: #3b82f6;
+  color: white;
+  margin-top: 3rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+/* ------------------ Popup ------------------ */
+#popup {
+  position: fixed;
+  top: 20px; left: 50%;
+  transform: translateX(-50%);
+  background: #ff4d4f;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 10px;
+  font-size: 1rem;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+</style>
 </head>
 <body>
 
-  <!-- Hero -->
-  <header>
-    <h1>GenCapsule</h1>
-    <p>Innovating Pharma Projects | Poster & Kidney Model Showcase</p>
-  </header>
+<!-- Hero Section -->
+<header class="hero">
+  <div class="circle circle1"></div>
+  <div class="circle circle2"></div>
+  <div class="circle circle3"></div>
+  <h1>GenCapsule</h1>
+  <p>Innovating Pharmacy Projects | Poster & Kidney Model Showcase</p>
+  <a href="#team" class="btn">Meet the Team</a>
+</header>
 
-  <!-- Projects -->
-  <section class="projects">
-    <div class="project-card">
-      <h2>Poster: Role of Pharmacy in Public Health</h2>
-      <p>A creative poster highlighting how pharmacy contributes to public health, medicine safety, and patient awareness.</p>
-    </div>
-    <div class="project-card">
-      <h2>Model: Human Kidney Structure</h2>
-      <p>An academic 3D model of the kidney to demonstrate structure, function, and medical relevance in pharmacy education.</p>
-    </div>
-  </section>
-
-  <!-- Mentors -->
-  <section class="mentors">
-    <h2 class="section-title">Guides & Mentors</h2>
-    <div class="mentors-grid">
-      <div class="mentor">
-        <img src="https://github.com/Ayuxhgpt/PharmaElevate/blob/main/assists/scp.jpg?raw=true" alt="Prof. Sumit Singh">
-        <h3>Prof. Sumit Singh</h3>
-        <p>Head of Department, Pharmacy</p>
-        <p>“A constant source of guidance and inspiration throughout this project.”</p>
-      </div>
-      <div class="mentor">
-        <img src="https://github.com/Ayuxhgpt/PharmaElevate/blob/main/assists/scp.jpg?raw=true" alt="Prof. Mohammad Imran">
-        <h3>Prof. Mohammad Imran</h3>
-        <p>Professor, Pharmacy</p>
-        <p>“His valuable insights and support shaped our project towards excellence.”</p>
+<!-- Projects -->
+<section class="projects">
+  <h2 class="section-title">Our Projects</h2>
+  <div class="container">
+    <div class="card project-card" onclick="toggleDetails(this)">
+      <h3>Poster: Role of Pharmacy in Public Health</h3>
+      <div class="details">
+        A creative poster highlighting how pharmacy contributes to public health, medicine safety, and patient awareness.
       </div>
     </div>
-  </section>
-
-  <!-- Team -->
-  <section class="team">
-    <h2 class="section-title">Meet the GenCapsule Team</h2>
-    <div class="members">
-      <div class="member">
-        <img src="https://via.placeholder.com/100" alt="Ayush Gupta">
-        <h3>Ayush Gupta</h3>
-        <p>Website Developer | Poster & Model Support</p>
-        <p>“Built the project website with dedication and helped in both poster and model development.”</p>
-        <a href="https://instagram.com/hey.ayyuuu" target="_blank" class="insta">@hey.ayyuuu</a>
-      </div>
-      <div class="member">
-        <img src="https://via.placeholder.com/100" alt="Saksham Gupta">
-        <h3>Saksham Gupta</h3>
-        <p>Website & Model Assistant</p>
-        <p>“Supported in website design and contributed to the model creation.”</p>
-        <a href="https://instagram.com/sakshamguptax" target="_blank" class="insta">@sakshamguptax</a>
-      </div>
-      <div class="member">
-        <img src="https://via.placeholder.com/100" alt="Sanket Kumar">
-        <h3>Sanket Kumar</h3>
-        <p>Poster Designer | Model Support</p>
-        <p>“Designed the poster creatively and actively contributed to the model.”</p>
-        <a href="#" class="insta">Add Insta</a>
-      </div>
-      <div class="member">
-        <img src="https://via.placeholder.com/100" alt="Aditya Rao">
-        <h3>Aditya Rao</h3>
-        <p>Model Creator</p>
-        <p>“Focused on building the academic kidney model with precision.”</p>
-        <a href="#" class="insta">Add Insta</a>
-      </div>
-      <div class="member">
-        <img src="https://via.placeholder.com/100" alt="Sandeep">
-        <h3>Sandeep</h3>
-        <p>Contributor</p>
-        <p>“Provided valuable contributions and support throughout the project.”</p>
-        <a href="#" class="insta">Add Insta</a>
+    <div class="card project-card" onclick="toggleDetails(this)">
+      <h3>Model: Human Kidney Structure</h3>
+      <div class="details">
+        An academic 3D model of the kidney to demonstrate structure, function, and medical relevance in pharmacy education.
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    <p>© 2025 <strong>GenCapsule</strong> | College of Pharmacy</p>
-  </footer>
-  <script>
-  // Disable right-click
-  document.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
-    showPopup("🚫 Right-click is disabled on this page!");
-  });
+<!-- Mentors -->
+<section>
+  <h2 class="section-title">Our Mentors</h2>
+  <div class="container mentors">
+    <div class="card">
+      <img src="https://github.com/Ayuxhgpt/PharmaElevate/blob/main/assists/scp.jpg?raw=true" alt="HOD Sumit Singh">
+      <h3>Prof. Sumit Singh</h3>
+      <p>Head of Department – Always guiding us with wisdom and motivation. A true source of inspiration.</p>
+    </div>
+    <div class="card">
+      <img src="https://github.com/Ayuxhgpt/PharmaElevate/blob/main/assists/scp.jpg?raw=true" alt="Prof. Mohammad Imran">
+      <h3>Prof. Mohammad Imran</h3>
+      <p>Professor – Encouraged us to push boundaries and supported us throughout. Learning was enjoyable!</p>
+    </div>
+  </div>
+</section>
 
-  // Disable Ctrl+C, Ctrl+S, Ctrl+U (copy, save, view source)
-  document.addEventListener('keydown', function(e) {
-    if ((e.ctrlKey && (e.key === 'c' || e.key === 's' || e.key === 'u')) ||
-        (e.key === 'PrintScreen')) {
-      e.preventDefault();
-      showPopup("⚠️ Action blocked! You cannot copy, save, or view source.");
-    }
-  });
+<!-- Team -->
+<section id="team">
+  <h2 class="section-title">Meet the GenCapsule Team</h2>
+  <div class="container members">
 
-  // Function to show popup
-  function showPopup(message) {
-    let popup = document.createElement('div');
-    popup.innerText = message;
-    popup.style.position = 'fixed';
-    popup.style.top = '20px';
-    popup.style.left = '50%';
-    popup.style.transform = 'translateX(-50%)';
-    popup.style.background = '#ff4d4f';
-    popup.style.color = 'white';
-    popup.style.padding = '15px 25px';
-    popup.style.borderRadius = '10px';
-    popup.style.boxShadow = '0 4px 10px rgba(0,0,0,0.2)';
-    popup.style.fontSize = '1rem';
-    popup.style.zIndex = '9999';
-    popup.style.opacity = '0';
-    popup.style.transition = 'opacity 0.3s ease';
-    document.body.appendChild(popup);
+    <div class="card">
+      <img src="https://github.com/Ayuxhgpt/PharmaElevate/blob/main/assists/ayupfp.jpg?raw=true" alt="Ayush Gupta">
+      <h3>Ayush Gupta</h3>
+      <p><strong>Website Developer & Poster/Model Support</strong></p>
+      <p>Created the complete project website and helped in poster & model development.</p>
+      <a href="https://instagram.com/hey.ayyuuu" target="_blank" class="insta">@hey.ayyuuu</a>
+    </div>
 
-    setTimeout(() => popup.style.opacity = '1', 50);
-    setTimeout(() => {
-      popup.style.opacity = '0';
-      setTimeout(() => popup.remove(), 500);
-    }, 2500);
+    <div class="card">
+      <img src="https://github.com/Ayuxhgpt/PharmaElevate/blob/main/assists/sakpfp1.jpg?raw=true" alt="Saksham Gupta">
+      <h3>Saksham Gupta</h3>
+      <p><strong>Website & Model Support</strong></p>
+      <p>Assisted in website and model creation, and helped the team wherever needed.</p>
+      <a href="https://instagram.com/sakshamguptax" target="_blank" class="insta">@sakshamguptax</a>
+    </div>
+
+    <div class="card">
+      <img src="https://github.com/Ayuxhgpt/PharmaElevate/blob/main/assists/sanpfp.jpg?raw=true" alt="Sanket Kumar">
+      <h3>Sanket Kumar</h3>
+      <p><strong>Poster Designer & Model Support</strong></p>
+      <p>Designed the poster creatively and actively contributed to the kidney model.</p>
+      <a href="#" class="insta">Add Insta</a>
+    </div>
+
+    <div class="card">
+      <img src="https://github.com/Ayuxhgpt/PharmaElevate/blob/main/assists/adipfp.jpg?raw=true" alt="Aditya Rao">
+      <h3>Aditya Rao</h3>
+      <p><strong>Model Creator</strong></p>
+      <p>Built the kidney model with precision and attention to detail.</p>
+      <a href="#" class="insta">Add Insta</a>
+    </div>
+
+    <div class="card">
+      <img src="https://github.com/Ayuxhgpt/PharmaElevate/blob/main/assists/sandpfp.jpg?raw=true" alt="Sandeep Kumar">
+      <h3>Sandeep Kumar</h3>
+      <p><strong>Contributor</strong></p>
+      <p>Provided support and helped in multiple areas of the project.</p>
+      <a href="#" class="insta">Add Insta</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2025 GenCapsule Project | Created with passion by our team</p>
+</footer>
+
+<!-- Popup -->
+<div id="popup"></div>
+
+<!-- ------------------ Scripts ------------------ -->
+<script>
+// Toggle project details
+function toggleDetails(card){
+  const details = card.querySelector('.details');
+  if(details.style.display === 'block'){ details.style.display = 'none'; }
+  else { details.style.display = 'block'; }
+}
+
+// Anti-download protection
+document.addEventListener('contextmenu', e => {
+  e.preventDefault(); showPopup("🚫 Right-click is disabled!");
+});
+document.addEventListener('keydown', e => {
+  if(e.ctrlKey && ['c','s','u'].includes(e.key.toLowerCase()) || e.key==='PrintScreen'){
+    e.preventDefault(); showPopup("⚠️ Action blocked!");
   }
+});
+// Disable image drag
+document.querySelectorAll('img').forEach(img => img.setAttribute('draggable','false'));
 
-  // Optional: Disable drag of images
-  document.querySelectorAll('img').forEach(img => {
-    img.setAttribute('draggable', 'false');
-  });
-  </script>
-
+// Popup function
+function showPopup(message){
+  const popup = document.getElementById('popup');
+  popup.innerText = message;
+  popup.style.opacity = '1';
+  setTimeout(()=>{popup.style.opacity='0';}, 2500);
+}
+</script>
 </body>
 </html>
