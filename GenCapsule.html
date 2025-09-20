@@ -26,7 +26,7 @@
       font-size: 1.2rem;
       opacity: 0.9;
     }
-    .projects, .team {
+    .projects, .team, .mentors {
       max-width: 1100px;
       margin: 40px auto;
       padding: 0 20px;
@@ -46,19 +46,19 @@
       color: #0073e6;
       margin-bottom: 10px;
     }
-    /* Team section */
-    .team h2 {
+    /* Team + Mentor section */
+    h2.section-title {
       text-align: center;
       margin-bottom: 30px;
       color: #004aad;
       font-size: 2rem;
     }
-    .members {
+    .members, .mentors-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 25px;
     }
-    .member {
+    .member, .mentor {
       background: white;
       border-radius: 15px;
       padding: 20px;
@@ -66,23 +66,25 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       transition: transform 0.3s ease;
     }
-    .member:hover {
+    .member:hover, .mentor:hover {
       transform: scale(1.05);
     }
-    .member img {
-      width: 100px;
-      height: 100px;
+    .member img, .mentor img {
+      width: 110px;
+      height: 110px;
       border-radius: 50%;
       object-fit: cover;
       margin-bottom: 15px;
+      border: 3px solid #004aad;
     }
-    .member h3 {
+    .member h3, .mentor h3 {
       margin: 10px 0 5px;
       font-size: 1.2rem;
+      color: #004aad;
     }
-    .member p {
+    .member p, .mentor p {
       font-size: 0.95rem;
-      color: #666;
+      color: #555;
     }
     .insta {
       margin-top: 8px;
@@ -111,6 +113,7 @@
     <p>Innovating Pharma Projects | Poster & Kidney Model Showcase</p>
   </header>
 
+  <!-- Projects -->
   <section class="projects">
     <div class="project-card">
       <h2>Poster: Role of Pharmacy in Public Health</h2>
@@ -122,8 +125,28 @@
     </div>
   </section>
 
+  <!-- Mentors -->
+  <section class="mentors">
+    <h2 class="section-title">Guides & Mentors</h2>
+    <div class="mentors-grid">
+      <div class="mentor">
+        <img src="https://via.placeholder.com/120" alt="Prof. Sumit Singh">
+        <h3>Prof. Sumit Singh</h3>
+        <p>Head of Department, Pharmacy</p>
+        <p>“A constant source of guidance and inspiration throughout this project.”</p>
+      </div>
+      <div class="mentor">
+        <img src="https://via.placeholder.com/120" alt="Prof. Imran Muhammad">
+        <h3>Prof. Imran Muhammad</h3>
+        <p>Professor, Pharmacy</p>
+        <p>“His valuable insights and support shaped our project towards excellence.”</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
   <section class="team">
-    <h2>Meet the GenCapsule Team</h2>
+    <h2 class="section-title">Meet the GenCapsule Team</h2>
     <div class="members">
       <div class="member">
         <img src="https://via.placeholder.com/100" alt="Member 1">
@@ -159,7 +182,7 @@
   </section>
 
   <footer>
-    <p>© 2025 <strong>GenCapsule</strong> | College of Pharmacy | Guided by Prof. XYZ</p>
+    <p>© 2025 <strong>GenCapsule</strong> | College of Pharmacy</p>
   </footer>
 
 </body>
