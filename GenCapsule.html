@@ -3,54 +3,164 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pharmacy Project Showcase</title>
+  <title>GenCapsule | Pharmacy Project Showcase</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f5f8ff;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #f0f8ff, #e6f0ff);
       color: #222;
+    }
+    header {
       text-align: center;
-      padding: 30px;
+      padding: 60px 20px;
+      background: #004aad;
+      color: white;
     }
-    .card {
-      max-width: 600px;
-      margin: auto;
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+    .projects, .team {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .project-card {
       background: white;
-      padding: 25px;
       border-radius: 15px;
+      padding: 25px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+      transition: transform 0.3s ease;
     }
-    h1 { color: #004aad; }
-    h2 { color: #0073e6; margin-top: 20px; }
-    ul { list-style: none; padding: 0; }
-    li { margin: 8px 0; font-size: 1.1em; }
+    .project-card:hover {
+      transform: translateY(-8px);
+    }
+    .project-card h2 {
+      color: #0073e6;
+      margin-bottom: 10px;
+    }
+    /* Team section */
+    .team h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #004aad;
+      font-size: 2rem;
+    }
+    .members {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 25px;
+    }
+    .member {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .member:hover {
+      transform: scale(1.05);
+    }
+    .member img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+    .member h3 {
+      margin: 10px 0 5px;
+      font-size: 1.2rem;
+    }
+    .member p {
+      font-size: 0.95rem;
+      color: #666;
+    }
+    .insta {
+      margin-top: 8px;
+      display: inline-block;
+      color: #e1306c;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
     footer {
-      margin-top: 20px;
-      font-size: 0.9em;
-      color: #555;
+      text-align: center;
+      padding: 20px;
+      background: #f1f5ff;
+      font-size: 0.9rem;
+      color: #444;
+    }
+    footer strong {
+      color: #004aad;
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Pharmacy Project Showcase</h1>
-    <h2>Poster: Role of Pharmacy in Public Health</h2>
-    <p><strong>Type:</strong> Poster Banner Design</p>
-    
-    <h2>Contributors</h2>
-    <ul>
-      <li><strong>Concept & Research:</strong> Your Name</li>
-      <li><strong>Design:</strong> Team Member A</li>
-      <li><strong>Prepared By:</strong> Team Member B</li>
-      <li><strong>Presented By:</strong> Team Member C</li>
-    </ul>
-    
-    <h2>Model: Kidney Structure</h2>
-    <p><strong>Type:</strong> 3D Model for Pharma Exhibition</p>
 
-    <footer>
-      <p>© 2025 College of Pharmacy | Guided by Prof. XYZ</p>
-    </footer>
-  </div>
+  <header>
+    <h1>GenCapsule</h1>
+    <p>Innovating Pharma Projects | Poster & Kidney Model Showcase</p>
+  </header>
+
+  <section class="projects">
+    <div class="project-card">
+      <h2>Poster: Role of Pharmacy in Public Health</h2>
+      <p>A creative poster highlighting how pharmacy contributes to public health, medicine safety, and patient awareness.</p>
+    </div>
+    <div class="project-card">
+      <h2>Model: Human Kidney Structure</h2>
+      <p>An academic 3D model of the kidney to demonstrate structure, function, and medical relevance in pharmacy education.</p>
+    </div>
+  </section>
+
+  <section class="team">
+    <h2>Meet the GenCapsule Team</h2>
+    <div class="members">
+      <div class="member">
+        <img src="https://via.placeholder.com/100" alt="Member 1">
+        <h3>Person 1</h3>
+        <p>Research & Concept</p>
+        <a href="#" class="insta">@username</a>
+      </div>
+      <div class="member">
+        <img src="https://via.placeholder.com/100" alt="Member 2">
+        <h3>Person 2</h3>
+        <p>Poster Design</p>
+        <a href="#" class="insta">@username</a>
+      </div>
+      <div class="member">
+        <img src="https://via.placeholder.com/100" alt="Member 3">
+        <h3>Person 3</h3>
+        <p>Model Preparation</p>
+        <a href="#" class="insta">@username</a>
+      </div>
+      <div class="member">
+        <img src="https://via.placeholder.com/100" alt="Member 4">
+        <h3>Person 4</h3>
+        <p>Presentation</p>
+        <a href="#" class="insta">@username</a>
+      </div>
+      <div class="member">
+        <img src="https://via.placeholder.com/100" alt="Member 5">
+        <h3>Person 5</h3>
+        <p>Coordinator</p>
+        <a href="#" class="insta">@username</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 <strong>GenCapsule</strong> | College of Pharmacy | Guided by Prof. XYZ</p>
+  </footer>
+
 </body>
 </html>
