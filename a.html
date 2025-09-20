@@ -229,6 +229,53 @@
   <footer>
     <p>© 2025 <strong>GenCapsule</strong> | College of Pharmacy</p>
   </footer>
+  <script>
+  // Disable right-click
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+    showPopup("🚫 Right-click is disabled on this page!");
+  });
+
+  // Disable Ctrl+C, Ctrl+S, Ctrl+U (copy, save, view source)
+  document.addEventListener('keydown', function(e) {
+    if ((e.ctrlKey && (e.key === 'c' || e.key === 's' || e.key === 'u')) ||
+        (e.key === 'PrintScreen')) {
+      e.preventDefault();
+      showPopup("⚠️ Action blocked! You cannot copy, save, or view source.");
+    }
+  });
+
+  // Function to show popup
+  function showPopup(message) {
+    let popup = document.createElement('div');
+    popup.innerText = message;
+    popup.style.position = 'fixed';
+    popup.style.top = '20px';
+    popup.style.left = '50%';
+    popup.style.transform = 'translateX(-50%)';
+    popup.style.background = '#ff4d4f';
+    popup.style.color = 'white';
+    popup.style.padding = '15px 25px';
+    popup.style.borderRadius = '10px';
+    popup.style.boxShadow = '0 4px 10px rgba(0,0,0,0.2)';
+    popup.style.fontSize = '1rem';
+    popup.style.zIndex = '9999';
+    popup.style.opacity = '0';
+    popup.style.transition = 'opacity 0.3s ease';
+    document.body.appendChild(popup);
+
+    setTimeout(() => popup.style.opacity = '1', 50);
+    setTimeout(() => {
+      popup.style.opacity = '0';
+      setTimeout(() => popup.remove(), 500);
+    }, 2500);
+  }
+
+  // Optional: Disable drag of images
+  document.querySelectorAll('img').forEach(img => {
+    img.setAttribute('draggable', 'false');
+  });
+  </script>
 
 </body>
 </html>
