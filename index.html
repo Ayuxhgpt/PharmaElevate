@@ -10,203 +10,259 @@
   <meta name="keywords" content="Pharmacy Education, Pharmacovigilance, Telepharmacy, AI Drug Discovery, Pharma Careers, Satyadev College of Pharmacy, PharmaElevate" />
   <meta name="author" content="Ayush Gupta, Saksham Gupta" />
 
-  <!-- Favicon (college logo) -->
-  <link rel="icon" type="image/png" href="assists/scp.jpg?raw=true">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assists/scp.jpg">
 
   <!-- Fonts & icons -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
-  <!-- Styles -->
+  <!-- Main CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- STICKY GLASS NAVBAR -->
-  <header class="nav-glass" id="site-header">
-    <div class="nav-inner">
-      <a class="brand" href="index.html">
-        <img src="assists/scp.jpg?raw=true" alt="Satyadev College Logo" class="brand-logo">
+  <!-- NAVBAR -->
+  <header class="nav-glass" id="site-header" role="banner">
+    <div class="nav-inner container">
+      <a class="brand" href="index.html" aria-label="PharmaElevate home">
+        <img src="assists/scp.jpg" alt="Satyadev College Logo" class="brand-logo">
         <div class="brand-text">
           <div class="brand-title">PharmaElevate</div>
           <div class="brand-sub">Satyadev College of Pharmacy</div>
         </div>
       </a>
 
-      <nav class="nav-links" id="navLinks">
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
         <a href="#home" class="active">Home</a>
-        <a href="pharma.html">Pharma Knowledge</a>
-        <a href="gallery.html">Gallery</a>
+        <a href="#knowledge">Pharma Knowledge</a>
         <a href="#research">Research</a>
+        <a href="#resources">Resources</a>
         <a href="#developers">Developers</a>
         <a href="#contact">Contact</a>
       </nav>
 
-      <button id="menuBtn" class="menu-btn" aria-label="Toggle menu">
+      <button id="menuBtn" class="menu-btn" aria-controls="navLinks" aria-expanded="false" aria-label="Toggle menu">
         <i class="fa fa-bars"></i>
       </button>
     </div>
   </header>
 
-  <!-- HERO SECTION -->
-  <section id="home" class="hero">
-    <div class="hero-inner">
-      <h1 class="hero-title">
-        <span class="anim-word">Discover</span>
-        <span class="anim-word">Learn</span>
-        <span class="anim-word">Elevate</span>
-      </h1>
-      <p class="hero-sub">PharmaElevate — student-run portal for pharmaceutical learning, research summaries, health awareness and career guidance.</p>
-      <div class="hero-ctas">
-        <a href="pharma.html" class="btn primary">Explore Pharma Knowledge</a>
+  <!-- HERO -->
+  <main>
+    <section id="home" class="hero" aria-labelledby="hero-heading">
+      <div class="hero-bg" aria-hidden="true">
+        <!-- subtle SVG molecules background -->
+        <svg class="molecules" viewBox="0 0 800 400" preserveAspectRatio="none" aria-hidden="true">
+          <circle cx="60" cy="60" r="14" />
+          <circle cx="720" cy="120" r="8" />
+          <circle cx="420" cy="30" r="10" />
+          <circle cx="320" cy="340" r="18" />
+          <circle cx="680" cy="320" r="12" />
+        </svg>
       </div>
-      <div class="hero-stats">
-        <div class="stat"><strong class="count" data-target="75">75</strong><span>Students reached</span></div>
-        <div class="stat"><strong class="count" data-target="18">18</strong><span>Articles & Guides</span></div>
-        <div class="stat"><strong class="count" data-target="2">2</strong><span>College Events</span></div>
-      </div>
-    </div>
-  </section>
 
-  <!-- HIGHLIGHTS / OFFERINGS -->
-  <section class="section highlights" id="highlights">
-    <div class="container">
-      <h2 class="section-heading">What We Offer</h2>
-      <div class="cards-grid">
-        <article class="card hover-float">
-          <div class="card-icon"><i class="fa-solid fa-book-medical"></i></div>
-          <h3>Pharma Knowledge</h3>
-          <p>Core concepts, drug profiles, pharmacology basics, and clinical insights—curated from foundational to advanced pharmacy knowledge.</p>
-          <a class="card-link" href="pharma.html">Read more →</a>
-        </article>
+      <div class="hero-inner container">
+        <h1 id="hero-heading" class="hero-title" aria-live="polite">
+          <span class="anim-word">Discover</span>
+          <span class="anim-word">Learn</span>
+          <span class="anim-word">Elevate</span>
+        </h1>
 
-        <article class="card hover-float">
-          <div class="card-icon"><i class="fa-solid fa-flask-vial"></i></div>
-          <h3>Research Summaries</h3>
-          <p>Summaries of the latest research in AI drug discovery, pharmacovigilance, telepharmacy, and modern pharmaceutical technologies. <small>(Sources cited)</small></p>
-          <a class="card-link" href="#research">Explore research →</a>
-        </article>
+        <p class="hero-sub">A student-led portal combining pharmacy fundamentals, research summaries, and practical resources — built for learners and future pharmacists.</p>
 
-        <article class="card hover-float">
-          <div class="card-icon"><i class="fa-solid fa-image"></i></div>
-          <h3>Gallery & Events</h3>
-          <p>Photo albums of labs, awareness drives, and events. Students can preview and contribute their images in upcoming features.</p>
-          <a class="card-link" href="gallery.html">Open gallery →</a>
-        </article>
-
-        <article class="card hover-float">
-          <div class="card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-          <h3>Student Resources</h3>
-          <p>Practical notes, past papers, interactive flashcards, and study guides to support exam preparation and research learning.</p>
-          <a class="card-link" href="resources.html">View resources →</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- RESEARCH & TRENDS -->
-  <section class="section research" id="research">
-    <div class="container">
-      <h2 class="section-heading">Research & Trends Shaping Pharmacy in 2025</h2>
-      <div class="research-grid">
-
-        <div class="research-card">
-          <h3>Pharmacovigilance & AI Integration</h3>
-          <p>Transitioning from traditional retrospective analysis to proactive real-time monitoring, AI and Real-World Data enable rapid detection of adverse drug reactions (ADRs), enhancing patient safety and intervention efficiency.</p>
+        <div class="hero-ctas">
+          <a href="#knowledge" class="btn primary">Explore Knowledge</a>
+          <a href="#resources" class="btn ghost">Student Resources</a>
         </div>
 
-        <div class="research-card">
-          <h3>AI in Drug Discovery</h3>
-          <p>AI predicts disease susceptibility, identifies potential drug targets, and accelerates molecular design and clinical property inference, reducing R&D time and costs.</p>
-        </div>
-
-        <div class="research-card">
-          <h3>Telepharmacy & Remote Care</h3>
-          <p>Telepharmacy improves access to pharmaceutical care, particularly in rural and underserved regions. The market is projected to grow to $13.57B by 2032.</p>
-        </div>
-
-        <div class="research-card">
-          <h3>Pharmacy Education in India</h3>
-          <p>Integration of AI tools in pharmacy curricula enables students to leverage technology for research and learning. Top institutions like Jamia Hamdard have maintained leading positions in NIRF rankings.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- FEATURED ARTICLES -->
-  <section class="section articles">
-    <div class="container">
-      <h2 class="section-heading">Featured Guides</h2>
-      <div class="article-grid">
-        <article class="article-card">
-          <h3>What is Pharmacovigilance?</h3>
-          <p>Overview of drug safety, signal detection, national PV programs, and the crucial role of pharmacists in patient care.</p>
-          <a href="blog.html#pv" class="read-more">Read →</a>
-        </article>
-        <article class="article-card">
-          <h3>Telepharmacy: Reaching the Unreached</h3>
-          <p>Exploring telepharmacy's role in extending pharmaceutical care to remote areas and enhancing patient outcomes.</p>
-          <a href="blog.html#tele" class="read-more">Read →</a>
-        </article>
-        <article class="article-card">
-          <h3>AI for Pharmacy Students</h3>
-          <p>Guide to AI tools and their applications for pharmaceutical learning, research, and pharmacovigilance.</p>
-          <a href="blog.html#ai" class="read-more">Read →</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- DEVELOPERS -->
-  <section class="section developers" id="developers">
-    <div class="container narrow">
-      <h2 class="section-heading">Meet the Developers</h2>
-      <div class="dev-grid">
-        <div class="dev-card">
-          <img class="dev-img" src="https://github.com/Ayuxhgpt/PharmaElevate/blob/main/assists/ayupfp.jpg?raw=true" alt="Ayush Gupta">
-          <h4>Ayush Gupta</h4>
-          <p class="muted">Lead Developer & Designer - B.Pharm (Satyadev College of Pharmacy)</p>
-          <p class="bio">Integrating technology and pharmacy education to create innovative learning platforms.</p>
-          <div class="socials">
-            <a href="https://github.com/Ayuxhgpt" target="_blank"><i class="fa-brands fa-github"></i></a>
-            <a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        <div class="hero-stats" aria-hidden="false">
+          <div class="stat">
+            <strong class="count" data-target="150">0</strong>
+            <span>Students reached</span>
           </div>
-        </div>
-
-        <div class="dev-card">
-          <img class="dev-img" src="https://github.com/Ayuxhgpt/PharmaElevate/blob/main/assists/sakpfp.jpg?raw=true" alt="Saksham Gupta">
-          <h4>Saksham Gupta</h4>
-          <p class="muted">Supporter & Research Contributor - B.Pharm (Satyadev College of Pharmacy)</p>
-          <p class="bio">Curates relevant content and ensures the platform stays informative and up-to-date.</p>
-          <div class="socials">
-            <a href="https://github.com/Ayuxhgpt" target="_blank"><i class="fa-brands fa-github"></i></a>
-            <a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+          <div class="stat">
+            <strong class="count" data-target="25">0</strong>
+            <span>Articles & Guides</span>
+          </div>
+          <div class="stat">
+            <strong class="count" data-target="8">0</strong>
+            <span>College Events</span>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- NEWSLETTER CTA -->
-  <section class="section cta" aria-labelledby="subscribe">
-    <div class="container">
-      <h2 id="subscribe" class="section-heading">Stay Informed</h2>
-      <p class="muted center">Sign up for project updates, event news, and study guides.</p>
+    <!-- KNOWLEDGE -->
+    <section class="section highlights" id="knowledge" aria-labelledby="knowledge-heading">
+      <div class="container">
+        <h2 id="knowledge-heading" class="section-heading">Pharma Knowledge</h2>
+        <p class="lead center muted">Foundational & modern topics — concise, reliable, and student-friendly.</p>
 
-      <form class="subscribe-form" name="subscribe" method="POST" data-netlify="true">
-        <input type="hidden" name="form-name" value="subscribe">
-        <input name="email" type="email" placeholder="your.email@domain.com" required>
-        <button class="btn primary" type="submit">Subscribe</button>
-      </form>
-    </div>
-  </section>
+        <div class="cards-grid">
+          <article class="card hover-float reveal" data-reveal>
+            <div class="card-icon"><i class="fa-solid fa-book-medical"></i></div>
+            <h3>Clinical Pharmacy</h3>
+            <p>Medication therapy management, patient counselling, ADR management, and collaborative care in hospitals & community settings.</p>
+            <a class="card-link" href="#resources">Read more →</a>
+          </article>
+
+          <article class="card hover-float reveal" data-reveal>
+            <div class="card-icon"><i class="fa-solid fa-industry"></i></div>
+            <h3>Industrial Pharmacy</h3>
+            <p>Formulation science, GMP, scale-up processes, quality control, and regulatory affairs for manufacturing safe medicines.</p>
+            <a class="card-link" href="#resources">Read more →</a>
+          </article>
+
+          <article class="card hover-float reveal" data-reveal>
+            <div class="card-icon"><i class="fa-solid fa-flask"></i></div>
+            <h3>Pharmacovigilance</h3>
+            <p>Signal detection, reporting ADRs, PvPI (India), causality assessment and risk minimization strategies to protect patients.</p>
+            <a class="card-link" href="#research">Explore research →</a>
+          </article>
+
+          <article class="card hover-float reveal" data-reveal>
+            <div class="card-icon"><i class="fa-solid fa-robot"></i></div>
+            <h3>AI & Digital Pharma</h3>
+            <p>AI in drug discovery, telepharmacy implementation, digital therapeutics and wearable health integration in pharmacy practice.</p>
+            <a class="card-link" href="#research">Discover →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section class="section research" id="research" aria-labelledby="research-heading">
+      <div class="container">
+        <h2 id="research-heading" class="section-heading">Research & Trends (2025)</h2>
+        <div class="research-grid">
+          <div class="research-card reveal" data-reveal>
+            <h3>Personalized Medicine</h3>
+            <p>Genomic profiling + AI models allow tailored therapies — reduces adverse reactions and improves efficacy for chronic/oncology treatments.</p>
+          </div>
+
+          <div class="research-card reveal" data-reveal>
+            <h3>Nanotech Drug Delivery</h3>
+            <p>Nano-carriers (liposomes, polymeric nanoparticles) enhance targeted delivery, cross biological barriers, and lower systemic toxicity.</p>
+          </div>
+
+          <div class="research-card reveal" data-reveal>
+            <h3>Biologics & Biosimilars</h3>
+            <p>Monoclonal antibodies, peptide therapeutics, and biosimilars shape modern therapeutics — regulatory and cold-chain challenges remain key.</p>
+          </div>
+
+          <div class="research-card reveal" data-reveal>
+            <h3>Green Pharmacy</h3>
+            <p>Sustainable synthesis, solvent reduction, and waste management — pharma industry shifts towards lower environmental impact processes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESOURCES -->
+    <section class="section resources" id="resources" aria-labelledby="resources-heading">
+      <div class="container">
+        <h2 id="resources-heading" class="section-heading">Student Resources</h2>
+        <p class="lead center muted">Practical tools for study & exam preparation.</p>
+
+        <div class="cards-grid">
+          <article class="card hover-float reveal" data-reveal>
+            <h3>Notes & Past Papers</h3>
+            <p>Download GPAT tips, PCI syllabus summaries, and curated past exam papers (PDF links can be added in production).</p>
+            <a href="#" class="card-link">Download →</a>
+          </article>
+
+          <article class="card hover-float reveal" data-reveal>
+            <h3>Flashcards & MCQs</h3>
+            <p>Interactive flashcards and sample MCQs for quick revision — ideal for pharmacology & pharmaceutics sections.</p>
+            <a href="#" class="card-link">Try →</a>
+          </article>
+
+          <article class="card hover-float reveal" data-reveal>
+            <h3>Video Lectures</h3>
+            <p>Curated playlists on pharmacy topics, AI in pharma, and research methodology. Embed YouTube or self-hosted videos.</p>
+            <a href="#" class="card-link">Watch →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED ARTICLES (short) -->
+    <section class="section articles" aria-labelledby="articles-heading">
+      <div class="container">
+        <h2 id="articles-heading" class="section-heading">Featured Guides</h2>
+        <div class="article-grid cards-grid">
+          <article class="article-card reveal" data-reveal>
+            <h3>What is Pharmacovigilance?</h3>
+            <p>Overview: ADR reporting, signal detection frameworks, and the pharmacist's role in patient safety.</p>
+            <a href="#" class="read-more">Read →</a>
+          </article>
+
+          <article class="article-card reveal" data-reveal>
+            <h3>Telepharmacy: Reaching Remote Patients</h3>
+            <p>How telepharmacy platforms offer counseling, chronic disease follow-ups, and remote dispensing services.</p>
+            <a href="#" class="read-more">Read →</a>
+          </article>
+
+          <article class="article-card reveal" data-reveal>
+            <h3>AI Tools for Students</h3>
+            <p>AI assistants for literature search, summarization, and simple molecule property prediction tools for research beginners.</p>
+            <a href="#" class="read-more">Read →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEVELOPERS -->
+    <section class="section developers" id="developers" aria-labelledby="developers-heading">
+      <div class="container narrow">
+        <h2 id="developers-heading" class="section-heading">Meet the Developers</h2>
+        <div class="dev-grid">
+          <div class="dev-card reveal" data-reveal>
+            <img class="dev-img" src="assists/ayupfp.jpg" alt="Ayush Gupta">
+            <h4>Ayush Gupta</h4>
+            <p class="muted">Lead Developer & Designer</p>
+            <p class="bio">Merging pharmacy knowledge with modern UI/UX for impactful student learning.</p>
+            <div class="socials">
+              <a href="https://github.com/Ayuxhgpt" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
+              <a href="#" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+          </div>
+
+          <div class="dev-card reveal" data-reveal>
+            <img class="dev-img" src="assists/sakpfp.jpg" alt="Saksham Gupta">
+            <h4>Saksham Gupta</h4>
+            <p class="muted">Research Contributor</p>
+            <p class="bio">Curates current research & educational content to keep the portal relevant and useful.</p>
+            <div class="socials">
+              <a href="https://github.com/Ayuxhgpt" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
+              <a href="#" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER CTA -->
+    <section class="section cta" aria-labelledby="subscribe">
+      <div class="container">
+        <h2 id="subscribe" class="section-heading">Stay Informed</h2>
+        <p class="muted center">Get project updates, event news and study guides directly to your inbox.</p>
+
+        <form class="subscribe-form" name="subscribe" method="POST" data-netlify="true" aria-label="Subscribe form">
+          <input type="hidden" name="form-name" value="subscribe">
+          <input name="email" type="email" placeholder="your.email@domain.com" required>
+          <button class="btn primary" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </section>
+  </main>
 
   <!-- FOOTER -->
-  <footer id="contact" class="footer">
+  <footer id="contact" class="footer" role="contentinfo">
     <div class="container footer-inner">
       <div class="footer-left">
-        <img src="assists/scp.jpg?raw=true" alt="Satyadev College Logo" class="foot-logo">
+        <img src="assists/scp.jpg" alt="Satyadev College Logo" class="foot-logo">
         <div>
           <strong>PharmaElevate</strong><br>
           Satyadev College of Pharmacy — Ghazipur
@@ -218,6 +274,7 @@
     </div>
   </footer>
 
+  <!-- JS -->
   <script src="script.js" defer></script>
 </body>
 </html>
