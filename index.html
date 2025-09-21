@@ -282,19 +282,24 @@
     </section>
 
     <!-- NEWSLETTER CTA -->
-    <section class="section cta" aria-labelledby="subscribe">
-      <div class="container">
-        <h2 id="subscribe" class="section-heading">Stay Informed</h2>
-        <p class="muted center">Get project updates, event news and study guides directly to your inbox.</p>
+<section class="section cta" aria-labelledby="subscribe">
+  <div class="container">
+    <h2 id="subscribe" class="section-heading">Stay Informed</h2>
+    <p class="muted center">Get project updates, event news and study guides directly to your inbox.</p>
 
-        <form class="subscribe-form" name="subscribe" method="POST" data-netlify="true" aria-label="Subscribe form">
-          <input type="hidden" name="form-name" value="subscribe">
-          <input name="email" type="email" placeholder="your.email@domain.com" required>
-          <button class="btn primary" type="submit">Subscribe</button>
-        </form>
-      </div>
-    </section>
-  </main>
+    <!-- PLACE THE FORM HERE -->
+    <form class="subscribe-form" name="subscribe" method="POST" data-netlify="true" aria-label="Subscribe form">
+      <input type="hidden" name="form-name" value="subscribe">
+      
+      <input name="name" type="text" placeholder="Your Name" required>
+      <input name="email" type="email" placeholder="Your Email" required>
+      <input name="phone" type="tel" placeholder="Phone (optional)">
+      
+      <button class="btn primary" type="submit">Subscribe</button>
+    </form>
+
+  </div>
+</section>
 
   <!-- FOOTER -->
   <footer id="contact" class="footer" role="contentinfo">
