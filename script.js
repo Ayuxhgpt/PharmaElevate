@@ -118,3 +118,41 @@ if (mediaQuery.matches) {
     c.textContent = c.dataset.target;
   });
 }
+/* TELEGRAM SUBSCRIPTION FORM (Name + Email + Optional Phone) */
+const subscribeForm = document.querySelector(".subscribe-form");
+if (subscribeForm) {
+  const BOT_TOKEN = "8009980915:AAFoYoG1SpzIYKg1pYGhw-ewRpf4JpLAxUk";
+  const ADMIN_CHAT_ID = "5551211670";
+
+  subscribeForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const name = subscribeForm.querySelector('input[name="name"]').value.trim();
+    const email = subscribeForm.querySelector('input[name="email"]').value.trim();
+    const phone = subscribeForm.querySelector('input[name="phone"]').value.trim();
+
+    if (!name || !email) return;
+
+    let message = `📩 New Subscription:\nName: ${name}\nEmail: ${email}`;
+    if (phone) {
+      message += `\nPhone: ${phone}`;
+    }
+
+    try {
+      await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chat_id: ADMIN_CHAT_ID,
+          text: message,
+        }),
+      });
+
+      alert("✅ Thank you! Your subscription has been sent.");
+      subscribeForm.reset();
+    } catch (err) {
+      console.error(err);
+      alert("❌ Something went wrong. Please try again later.");
+    }
+  });
+}
