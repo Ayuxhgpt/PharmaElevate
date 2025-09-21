@@ -1,4 +1,9 @@
-/* ===== Main JS for interactive features ===== */
+/* Main JS for interactive features:
+   - Mobile menu toggle
+   - Smooth scroll for internal links
+   - Stats counter when visible (IntersectionObserver)
+   - Scroll reveal animations (IntersectionObserver)
+*/
 
 // MOBILE MENU
 const menuBtn = document.getElementById('menuBtn');
@@ -11,6 +16,7 @@ if (menuBtn && navLinks) {
     navLinks.classList.toggle('show');
   });
 
+  // close menu on link click (mobile)
   navLinks.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => {
       navLinks.classList.remove('show');
@@ -19,17 +25,15 @@ if (menuBtn && navLinks) {
   });
 }
 
-// SMOOTH SCROLL WITH OFFSET
+// SMOOTH SCROLL FOR INTERNAL LINKS
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     const href = this.getAttribute('href');
     if (href.length > 1) {
+      e.preventDefault();
       const target = document.querySelector(href);
       if (target) {
-        e.preventDefault();
-        const offset = 80;
-        const topPos = target.getBoundingClientRect().top + window.pageYOffset - offset;
-        window.scrollTo({ top: topPos, behavior: 'smooth' });
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
   });
@@ -37,32 +41,42 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // STATS COUNTER
 const counters = document.querySelectorAll('.count');
+const counterObserverOptions = { root: null, rootMargin: '0px', threshold: 0.45 };
+
+function runCounter(el) {
+  const target = +el.dataset.target;
+  const duration = 1700; // ms
+  const start = 0;
+  const startTime = performance.now();
+
+  function step(now) {
+    const progress = Math.min((now - startTime) / duration, 1);
+    el.textContent = Math.floor(progress * (target - start) + start);
+    if (progress < 1) {
+      requestAnimationFrame(step);
+    } else {
+      el.textContent = target;
+    }
+  }
+  requestAnimationFrame(step);
+}
+
 const counterObserver = new IntersectionObserver((entries, obs) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       const el = entry.target;
       if (!el.classList.contains('counted')) {
-        let target = +el.dataset.target;
-        let duration = 1700;
-        let start = 0;
-        let startTime = performance.now();
-
-        function step(now) {
-          const progress = Math.min((now - startTime) / duration, 1);
-          el.textContent = Math.floor(progress * (target - start) + start);
-          if (progress < 1) requestAnimationFrame(step);
-          else el.textContent = target;
-        }
-        requestAnimationFrame(step);
+        runCounter(el);
         el.classList.add('counted');
       }
       obs.unobserve(el);
     }
   });
-}, { threshold: 0.45 });
+}, counterObserverOptions);
+
 counters.forEach(c => counterObserver.observe(c));
 
-// SCROLL REVEAL
+// SCROLL REVEAL FOR .reveal ELEMENTS
 const revealElements = document.querySelectorAll('.reveal');
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -72,9 +86,10 @@ const revealObserver = new IntersectionObserver((entries) => {
     }
   });
 }, { threshold: 0.18 });
+
 revealElements.forEach(el => revealObserver.observe(el));
 
-// NAV LINK ACTIVE ON SCROLL
+// ACTIVE NAV LINK ON SCROLL
 const navAnchors = document.querySelectorAll('.nav-links a');
 const sections = Array.from(navAnchors).map(a => {
   const href = a.getAttribute('href');
@@ -85,4 +100,21 @@ window.addEventListener('scroll', () => {
   const y = window.scrollY;
   sections.forEach((sec, idx) => {
     if (!sec) return;
-    const top = sec.offsetTop - 120
+    const top = sec.offsetTop - 120;
+    const bottom = top + sec.offsetHeight;
+    if (y >= top && y < bottom) {
+      navAnchors.forEach(a => a.classList.remove('active'));
+      navAnchors[idx].classList.add('active');
+    }
+  });
+});
+
+// Accessibility: reduce motion respect
+const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+if (mediaQuery.matches) {
+  // remove animations by quickly showing reveal elements and setting counters instantly
+  document.querySelectorAll('.reveal').forEach(r => r.classList.add('visible'));
+  document.querySelectorAll('.count').forEach(c => {
+    c.textContent = c.dataset.target;
+  });
+}
