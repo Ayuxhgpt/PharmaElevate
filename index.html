@@ -2,18 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>PharmaElevate — Elevating Pharma Education</title>
 
   <!-- SEO -->
-  <meta name="description" content="PharmaElevate — A student-led B.Pharmacy project (Satyadev College of Pharmacy). Learn about pharmacy scope, pharmacovigilance, AI in pharma, telepharmacy, student resources and college events." />
+  <meta name="description" content="PharmaElevate — A student-led B.Pharmacy project (Satyadev College of Pharmacy). Learn about pharmacy scope, pharmacovigilance, AI in pharma, telepharmacy, student resources, and college events." />
   <meta name="keywords" content="Pharmacy Education, Pharmacovigilance, Telepharmacy, AI Drug Discovery, Pharma Careers, Satyadev College of Pharmacy, PharmaElevate" />
   <meta name="author" content="Ayush Gupta, Saksham Gupta" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assists/scp.jpg">
 
-  <!-- Fonts & icons -->
+  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
@@ -52,8 +52,7 @@
   <main>
     <section id="home" class="hero" aria-labelledby="hero-heading">
       <div class="hero-bg" aria-hidden="true">
-        <!-- subtle SVG molecules background -->
-        <svg class="molecules" viewBox="0 0 800 400" preserveAspectRatio="none" aria-hidden="true">
+        <svg class="molecules" viewBox="0 0 800 400" preserveAspectRatio="none">
           <circle cx="60" cy="60" r="14" />
           <circle cx="720" cy="120" r="8" />
           <circle cx="420" cy="30" r="10" />
@@ -68,38 +67,22 @@
           <span class="anim-word">Learn</span>
           <span class="anim-word">Elevate</span>
         </h1>
-
         <p class="hero-sub">A student-led portal combining pharmacy fundamentals, research summaries, and practical resources — built for learners and future pharmacists.</p>
-
         <div class="hero-ctas">
           <a href="#knowledge" class="btn primary">Explore Knowledge</a>
           <a href="#resources" class="btn ghost">Student Resources</a>
         </div>
-
-        <div class="hero-stats" aria-hidden="false">
-          <div class="stat">
-            <strong class="count" data-target="150">0</strong>
-            <span>Students reached</span>
-          </div>
-          <div class="stat">
-            <strong class="count" data-target="25">0</strong>
-            <span>Articles & Guides</span>
-          </div>
-          <div class="stat">
-            <strong class="count" data-target="8">0</strong>
-            <span>College Events</span>
-          </div>
-        </div>
       </div>
     </section>
 
-    <!-- KNOWLEDGE -->
+    <!-- PHARMA KNOWLEDGE -->
     <section class="section highlights" id="knowledge" aria-labelledby="knowledge-heading">
       <div class="container">
         <h2 id="knowledge-heading" class="section-heading">Pharma Knowledge</h2>
         <p class="lead center muted">Foundational & modern topics — concise, reliable, and student-friendly.</p>
 
         <div class="cards-grid">
+          <!-- Clinical Pharmacy -->
           <article class="card hover-float reveal" data-reveal>
             <div class="card-icon"><i class="fa-solid fa-book-medical"></i></div>
             <h3>Clinical Pharmacy</h3>
@@ -107,6 +90,7 @@
             <a class="card-link" href="#resources">Read more →</a>
           </article>
 
+          <!-- Industrial Pharmacy -->
           <article class="card hover-float reveal" data-reveal>
             <div class="card-icon"><i class="fa-solid fa-industry"></i></div>
             <h3>Industrial Pharmacy</h3>
@@ -114,24 +98,42 @@
             <a class="card-link" href="#resources">Read more →</a>
           </article>
 
+          <!-- Pharmacovigilance -->
           <article class="card hover-float reveal" data-reveal>
             <div class="card-icon"><i class="fa-solid fa-flask"></i></div>
             <h3>Pharmacovigilance</h3>
-            <p>Signal detection, reporting ADRs, PvPI (India), causality assessment and risk minimization strategies to protect patients.</p>
+            <p>Signal detection, reporting ADRs, PvPI (India), causality assessment, and risk minimization strategies to protect patients.</p>
             <a class="card-link" href="#research">Explore research →</a>
           </article>
 
+          <!-- AI & Digital Pharma -->
           <article class="card hover-float reveal" data-reveal>
             <div class="card-icon"><i class="fa-solid fa-robot"></i></div>
             <h3>AI & Digital Pharma</h3>
-            <p>AI in drug discovery, telepharmacy implementation, digital therapeutics and wearable health integration in pharmacy practice.</p>
+            <p>AI in drug discovery, telepharmacy, digital therapeutics, wearable health integration, and data-driven pharmacy practices.</p>
             <a class="card-link" href="#research">Discover →</a>
+          </article>
+
+          <!-- Regulatory Affairs -->
+          <article class="card hover-float reveal" data-reveal>
+            <div class="card-icon"><i class="fa-solid fa-gavel"></i></div>
+            <h3>Regulatory Affairs</h3>
+            <p>Drug approvals, compliance with Indian & international guidelines, patent laws, and ethics in pharmacy practice.</p>
+            <a class="card-link" href="#resources">Read more →</a>
+          </article>
+
+          <!-- Biopharmaceutics -->
+          <article class="card hover-float reveal" data-reveal>
+            <div class="card-icon"><i class="fa-solid fa-vial"></i></div>
+            <h3>Biopharmaceutics</h3>
+            <p>Study of drug absorption, distribution, metabolism, excretion (ADME), and bioavailability optimization for effective therapies.</p>
+            <a class="card-link" href="#resources">Read more →</a>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- RESEARCH -->
+    <!-- RESEARCH & TRENDS -->
     <section class="section research" id="research" aria-labelledby="research-heading">
       <div class="container">
         <h2 id="research-heading" class="section-heading">Research & Trends (2025)</h2>
@@ -153,13 +155,23 @@
 
           <div class="research-card reveal" data-reveal>
             <h3>Green Pharmacy</h3>
-            <p>Sustainable synthesis, solvent reduction, and waste management — pharma industry shifts towards lower environmental impact processes.</p>
+            <p>Sustainable synthesis, solvent reduction, and waste management — pharma industry shifts towards environmentally-friendly processes.</p>
+          </div>
+
+          <div class="research-card reveal" data-reveal>
+            <h3>Telepharmacy Expansion</h3>
+            <p>Remote consultations, automated dispensing, and telemonitoring of chronic patients — bridging rural and urban healthcare gaps.</p>
+          </div>
+
+          <div class="research-card reveal" data-reveal>
+            <h3>AI-assisted Drug Discovery</h3>
+            <p>Machine learning predicts molecular interactions, optimizes lead compounds, and accelerates early-stage drug development.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- RESOURCES -->
+    <!-- STUDENT RESOURCES -->
     <section class="section resources" id="resources" aria-labelledby="resources-heading">
       <div class="container">
         <h2 id="resources-heading" class="section-heading">Student Resources</h2>
@@ -168,7 +180,7 @@
         <div class="cards-grid">
           <article class="card hover-float reveal" data-reveal>
             <h3>Notes & Past Papers</h3>
-            <p>Download GPAT tips, PCI syllabus summaries, and curated past exam papers (PDF links can be added in production).</p>
+            <p>Download GPAT tips, PCI syllabus summaries, and curated past exam papers.</p>
             <a href="#" class="card-link">Download →</a>
           </article>
 
@@ -180,14 +192,14 @@
 
           <article class="card hover-float reveal" data-reveal>
             <h3>Video Lectures</h3>
-            <p>Curated playlists on pharmacy topics, AI in pharma, and research methodology. Embed YouTube or self-hosted videos.</p>
+            <p>Curated playlists on pharmacy topics, AI in pharma, and research methodology.</p>
             <a href="#" class="card-link">Watch →</a>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- FEATURED ARTICLES (short) -->
+    <!-- FEATURED ARTICLES -->
     <section class="section articles" aria-labelledby="articles-heading">
       <div class="container">
         <h2 id="articles-heading" class="section-heading">Featured Guides</h2>
@@ -247,11 +259,11 @@
     <section class="section cta" aria-labelledby="subscribe">
       <div class="container">
         <h2 id="subscribe" class="section-heading">Stay Informed</h2>
-        <p class="muted center">Get project updates, event news and study guides directly to your inbox.</p>
+        <p class="muted center">Get project updates, event news, and study guides directly to your inbox.</p>
 
         <form class="subscribe-form" name="subscribe" method="POST" data-netlify="true" aria-label="Subscribe form">
           <input type="hidden" name="form-name" value="subscribe">
-          <input name="email" type="email" placeholder="your.email@domain.com" required>
+          <input name="email" type="email" placeholder="your.email@domain.com" required aria-label="Email">
           <button class="btn primary" type="submit">Subscribe</button>
         </form>
       </div>
