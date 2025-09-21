@@ -133,7 +133,7 @@ if (subscribeForm) {
 
     if (!name || !email) return;
 
-    let message = `📩 New Subscription:\nName: ${name}\nEmail: ${email}`;
+    let message = `Heyy!!! CEO\n📩 New Subscription On Your Website PharmaElevated:\nName: ${name}\nEmail: ${email}`;
     if (phone) {
       message += `\nPhone: ${phone}`;
     }
@@ -148,7 +148,6 @@ if (subscribeForm) {
         }),
       });
 
-      alert("✅ Thank you! Your subscription has been sent.");
       subscribeForm.reset();
     } catch (err) {
       console.error(err);
