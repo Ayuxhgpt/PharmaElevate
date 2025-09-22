@@ -1,56 +1,115 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>GenCapsule — Projects | PharmaElevate</title>
-<link rel="stylesheet" href="genc_style.css">
+<link rel="stylesheet" href="genc_pro_style.css">
 </head>
 <body>
-<header class="topbar">
+<header class="topbar" role="banner">
   <div class="container bar-inner">
     <a class="brand" href="index.html">PharmaElevate</a>
-    <button id="menuToggle" aria-label="Toggle menu">☰</button>
-    <nav id="mainNav" class="nav">
+    <nav id="mainNav" class="nav" aria-label="Main navigation">
       <a href="index.html#home">Home</a>
-      <a href="GenCapsule.html">Projects</a>
+      <a href="GenCapsule.html" aria-current="page">Projects</a>
       <a href="index.html#developers">Mentors</a>
       <a href="index.html#team">Team</a>
     </nav>
   </div>
 </header>
-<section class="hero">
-  <div class="hero-inner container">
-    <h1 class="typing">GenCapsule</h1>
-    <p class="sub">Innovative Pharmacy Projects — Posters & 3D Models showcase</p>
-    <a href="#projects" class="btn">Explore Projects</a>
+
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="circles">
+    <span class="c1"></span><span class="c2"></span><span class="c3"></span>
   </div>
-  <ul class="circles" aria-hidden="true"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+  <div class="hero-inner container">
+    <h1 id="hero-heading" class="typing" data-text="GenCapsule — Innovative Pharmacy Projects">GenCapsule — Innovative Pharmacy Projects</h1>
+    <p class="subtitle">Posters, 3D models, and research showcases built by students — polished for presentation and learning.</p>
+    <div class="hero-ctas">
+      <a class="btn primary" href="#projects">Explore Projects</a>
+      <a class="btn ghost" href="#team">Meet the Team</a>
+    </div>
+  </div>
 </section>
-<main class="container main-grid">
-  <section id="projects" class="projects">
+
+<main class="container">
+  <section id="projects" class="reveal">
     <h2 class="section-title">Our Projects</h2>
     <div class="grid">
-      <article class="card" data-anim>
-        <div class="card-media poster-thumb"></div>
+      <article class="card reveal">
+        <div class="thumb poster-thumb" role="img" aria-label="Poster thumbnail"></div>
         <h3>Poster: Role of Pharmacy in Public Health</h3>
-        <p class="muted">A high-impact poster about medicine safety and public awareness.</p>
-        <div class="actions">
-          <a href="poster.html" class="btn ghost">View Poster</a>
+        <p>High-impact poster about medicine safety, rational use, and community awareness.</p>
+        <div style="margin-top:10px;text-align:center;">
+          <a class="btn ghost" href="poster.html">View Poster</a>
         </div>
       </article>
-      <article class="card" data-anim>
-        <div class="card-media kidney-thumb"></div>
+
+      <article class="card reveal">
+        <div class="thumb kidney-thumb" role="img" aria-label="Kidney model thumbnail"></div>
         <h3>Model: Human Kidney Structure</h3>
-        <p class="muted">A 3D study model demonstrating nephron anatomy and clinical relevance.</p>
-        <div class="actions">
-          <a href="kidney.html" class="btn ghost">View Model</a>
+        <p>A 3D study model demonstrating nephron anatomy and clinical relevance for classroom demos.</p>
+        <div style="margin-top:10px;text-align:center;">
+          <a class="btn ghost" href="kidney.html">View Model</a>
         </div>
       </article>
     </div>
   </section>
+
+  <section class="reveal" style="margin-top:28px;">
+    <h2 class="section-title">Our Mentors</h2>
+    <div class="mentors-grid">
+      <div class="person reveal">
+        <img src="assists/scp.jpg" alt="Prof. Sumit Singh">
+        <h4>Prof. Sumit Singh</h4>
+        <div class="role">Head of Department</div>
+        <p style="color:var(--muted);margin-top:8px;">Guiding the team with expertise and encouragement.</p>
+      </div>
+      <div class="person reveal">
+        <img src="assists/scp.jpg" alt="Prof. Mohammad Imran">
+        <h4>Prof. Mohammad Imran</h4>
+        <div class="role">Professor</div>
+        <p style="color:var(--muted);margin-top:8px;">Mentorship in project methodology and presentation.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="team" class="reveal" style="margin-top:28px;">
+    <h2 class="section-title">Meet the GenCapsule Team</h2>
+    <div class="grid">
+      <div class="person reveal card">
+        <img src="assists/sanpfp.jpg" alt="Sanket Kumar">
+        <h4>Sanket Kumar</h4>
+        <div class="role" style="background:linear-gradient(90deg,#f97316,#facc15)">Poster Designer & Model Support</div>
+      </div>
+      <div class="person reveal card">
+        <img src="assists/adipfp.jpg" alt="Aditya Rav">
+        <h4>Aditya Rav</h4>
+        <div class="role" style="background:linear-gradient(90deg,#10b981,#3b82f6)">Model Creator</div>
+      </div>
+      <div class="person reveal card">
+        <img src="assists/sandpfp.jpg" alt="Sandeep Singh">
+        <h4>Sandeep Singh</h4>
+        <div class="role" style="background:linear-gradient(90deg,#ef4444,#f97316)">Contributor</div>
+      </div>
+      <div class="person reveal card">
+        <img src="assists/sakpfp1.jpg" alt="Saksham Gupta">
+        <h4>Saksham Gupta</h4>
+        <div class="role" style="background:linear-gradient(90deg,#8b5cf6,#3b82f6)">Website & Model Support</div>
+      </div>
+      <div class="person reveal card">
+        <img src="assists/ayupfp.jpg" alt="Ayush Gupta">
+        <h4>Ayush Gupta</h4>
+        <div class="role" style="background:linear-gradient(90deg,#3b82f6,#9333ea)">Website Developer & Model Support</div>
+      </div>
+    </div>
+  </section>
 </main>
-<footer class="footer"><div class="container"><p>© 2025 GenCapsule — Part of PharmaElevate</p></div></footer>
-<script src="genc_script.js" defer></script>
+
+<footer style="text-align:center;padding:18px 8px;margin-top:28px;background:linear-gradient(90deg,#eef2ff,#f8faff);">
+  <div class="container"><small style="color:var(--muted)">© 2025 GenCapsule — Part of PharmaElevate</small></div>
+</footer>
+
+<script src="genc_pro_script.js" defer></script>
 </body>
 </html>
