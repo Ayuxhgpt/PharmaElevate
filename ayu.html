@@ -3,219 +3,92 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>StarForge — Interactive Star Playground</title>
+<title>Interactive Download Button</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{overflow:hidden;background:#000;font-family:sans-serif;color:#fff;transition:background 1.5s;}
-body.theme-molten{background:linear-gradient(180deg,#000 0%,#100500 50%,#1f0a00 100%);}
-body.theme-cosmic{background:linear-gradient(180deg,#000 0%,#050010 50%,#0a001f 100%);}
-body.theme-emerald{background:linear-gradient(180deg,#000 0%,#001005 50%,#001f0a 100%);}
-#container{position:fixed;top:0;left:0;width:100%;height:100%;}
-.glow{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;mix-blend-mode:screen;opacity:0.75;}
-.ui-panel{position:fixed;z-index:100;padding:12px;border:1px solid;border-radius:16px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 4px 30px rgba(0,0,0,0.2);display:flex;gap:10px;align-items:center;transition:background 1.5s,border-color 1.5s;}
-#ui-top-left{top:20px;left:20px;flex-wrap:wrap;}
-#ui-bottom-right{bottom:20px;right:20px;flex-direction:column;align-items:flex-end;gap:15px;}
-.theme-btn{padding:8px 16px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.85);border-radius:12px;cursor:pointer;transition:0.3s;font-size:14px;font-weight:300;}
-.theme-btn:hover{background:rgba(255,255,255,0.2);border-color:rgba(255,255,255,0.4);}
-.theme-btn:active{transform:scale(0.98);}
-.theme-btn.active{color:#fff;font-weight:500;}
-.toggle-option{display:flex;align-items:center;gap:10px;}
-.toggle-option label{cursor:pointer;font-size:14px;font-weight:300;color:rgba(255,255,255,0.9);}
-.toggle-switch{position:relative;display:inline-block;width:46px;height:24px;}
-.toggle-switch input{opacity:0;width:0;height:0;}
-.toggle-slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;transition:.3s;border-radius:24px;background:rgba(255,255,255,0.2);}
-.toggle-slider:before{position:absolute;content:"";height:18px;width:18px;left:3px;bottom:3px;background-color:white;transition:.3s;border-radius:50%;}
-input:checked + .toggle-slider{background-color:rgba(255,100,0,0.6);}
-input:checked + .toggle-slider:before{transform:translateX(22px);}
-.star-rating{display:flex;gap:4px;}
-.star-rating span{cursor:pointer;font-size:22px;transition:transform 0.2s;color:#555;}
-.star-rating span.hovered{color:#ffdd00;transform:scale(1.2);}
-.star-rating span.selected{color:#ffcc00;}
-@media(max-width:768px){.ui-panel{padding:10px;border-radius:12px;} #ui-top-left{top:15px;left:15px;} #ui-bottom-right{bottom:15px;right:15px;} }
-@media(max-width:480px){#ui-top-left{top:10px;left:10px;} #ui-bottom-right{bottom:10px;right:10px;} .theme-btn{padding:6px 12px;font-size:12px;} .toggle-option label{font-size:12px;} }
-</style>
-<script type="importmap">
-{
-  "imports":{
-    "three":"https://cdn.jsdelivr.net/npm/three@0.162.0/build/three.module.js",
-    "three/addons/":"https://cdn.jsdelivr.net/npm/three@0.162.0/examples/jsm/"
-  }
+body {
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
 }
-</script>
+
+/* Toggle-style animated download button */
+.download-btn {
+    position: relative;
+    display: inline-block;
+    padding: 16px 32px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    background: linear-gradient(45deg, #ff4800, #ffcc00, #ff4800);
+    background-size: 300% 300%;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 0 15px rgba(255, 120, 50, 0.7), 0 0 30px rgba(255, 80, 0, 0.5);
+    animation: gradientMove 3s ease infinite;
+}
+
+.download-btn::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0.3), rgba(255,255,255,0));
+    transform: skewX(-25deg);
+    transition: all 0.5s;
+}
+
+.download-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 180, 80, 0.9), 0 0 50px rgba(255, 100, 0, 0.7);
+}
+
+.download-btn:hover::after {
+    left: 150%;
+}
+
+.download-btn.active {
+    animation: pulseGlow 1s infinite alternate;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 20px rgba(255,120,50,0.7), 0 0 40px rgba(255,80,0,0.5); }
+    100% { box-shadow: 0 0 35px rgba(255,180,80,0.9), 0 0 60px rgba(255,100,0,0.7); }
+}
+</style>
 </head>
 <body>
-<div id="container"></div>
-<div class="glow"></div>
-<div id="ui-top-left" class="ui-panel"></div>
-<div id="ui-bottom-right" class="ui-panel">
-  <button id="pulseBtn" class="theme-btn" title="Click for pulse. Hold to charge.">Pulse</button>
-  <div class="toggle-option">
-    <label for="animateToggle">Animate</label>
-    <label class="toggle-switch">
-      <input type="checkbox" id="animateToggle" checked />
-      <span class="toggle-slider"></span>
-    </label>
-  </div>
-  <div class="star-rating" id="starRating"></div>
-</div>
 
-<script type="module">
-import * as THREE from 'three';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+<a href="https://raw.githubusercontent.com/Ayuxhgpt/PharmaElevate/main/PosterForWebsite_203501_0000.pdf" 
+   download 
+   class="download-btn" 
+   id="downloadBtn">
+   📥 Download Poster
+</a>
 
-let scene,camera,renderer,particles,starField,controls;
-let time=0,isAnimationEnabled=true,currentTheme='molten';
-let shockwaves=[],chargeStart=null;
-const particleCount=5000;
+<script>
+const btn = document.getElementById('downloadBtn');
 
-const themes={
-  molten:{name:'Molten',colors:[0xff4800,0xff8c00,0xd73a00,0x3d1005,0xffc600]},
-  cosmic:{name:'Cosmic',colors:[0x6a0dad,0x9370db,0x4b0082,0x8a2be2,0xdda0dd]},
-  emerald:{name:'Emerald',colors:[0x00ff7f,0x3cb371,0x2e8b57,0x00fa9a,0x98fb98]}
-};
-
-document.addEventListener('DOMContentLoaded',init);
-
-function init(){
-  scene=new THREE.Scene();
-  camera=new THREE.PerspectiveCamera(60,window.innerWidth/window.innerHeight,0.1,1500);
-  camera.position.z=90;
-  renderer=new THREE.WebGLRenderer({antialias:true});
-  renderer.setSize(window.innerWidth,window.innerHeight);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
-  document.getElementById('container').appendChild(renderer.domElement);
-
-  createThemeButtons();
-  createParticleSystem();
-  createBackgroundStars();
-  createStarRating();
-
-  controls=new OrbitControls(camera,renderer.domElement);
-  controls.enableDamping=true; controls.dampingFactor=0.04; controls.rotateSpeed=0.3;
-  controls.autoRotate=true; controls.autoRotateSpeed=0.15;
-
-  window.addEventListener('resize',onWindowResize);
-  document.getElementById('animateToggle').addEventListener('change',e=>{isAnimationEnabled=e.target.checked;});
-  const pulseBtn=document.getElementById('pulseBtn');
-  pulseBtn.addEventListener('click',()=>{if(chargeStart!==null)return;triggerShockwave({amplitude:12,speed:28,width:6,decay:1.25});});
-  pulseBtn.addEventListener('mousedown',()=>{chargeStart=performance.now();});
-  pulseBtn.addEventListener('mouseup',endCharge);
-  pulseBtn.addEventListener('mouseleave',endCharge);
-
-  setTheme(currentTheme);
-  animate();
-}
-
-function endCharge(){
-  if(chargeStart===null) return;
-  const heldMs=performance.now()-chargeStart; chargeStart=null;
-  const heldSec=Math.min(heldMs/1000,2.0);
-  const amplitude=10+heldSec*15,width=5+heldSec*4,speed=28+heldSec*6;
-  triggerShockwave({amplitude,speed,width,decay:1.35});
-}
-
-function triggerShockwave({amplitude=12,speed=28,width=6,decay=1.25}={}){
-  shockwaves.push({t0:time,amplitude,speed,width,decay});
-  if(shockwaves.length>6) shockwaves.shift();
-}
-
-function createThemeButtons(){
-  const sel=document.createElement('div'); sel.style.display='flex'; sel.style.gap='10px'; sel.style.flexWrap='wrap';
-  Object.keys(themes).forEach(key=>{
-    const btn=document.createElement('button');
-    btn.className='theme-btn'; btn.dataset.theme=key; btn.textContent=themes[key].name;
-    btn.addEventListener('click',()=>setTheme(key));
-    sel.appendChild(btn);
-  });
-  document.getElementById('ui-top-left').prepend(sel);
-}
-
-function setTheme(theme){
-  currentTheme=theme;
-  document.body.className='theme-'+theme;
-  document.querySelectorAll('.theme-btn').forEach(btn=>btn.classList.remove('active'));
-  document.querySelector(`.theme-btn[data-theme="${theme}"]`).classList.add('active');
-}
-
-function createParticleSystem(){
-  const geo=new THREE.BufferGeometry();
-  const positions=new Float32Array(particleCount*3);
-  const colors=new Float32Array(particleCount*3);
-  for(let i=0;i<particleCount;i++){
-    positions[i*3]=(Math.random()-0.5)*80;
-    positions[i*3+1]=(Math.random()-0.5)*80;
-    positions[i*3+2]=(Math.random()-0.5)*80;
-    const col=new THREE.Color(themes[currentTheme].colors[Math.floor(Math.random()*themes[currentTheme].colors.length)]);
-    colors[i*3]=col.r; colors[i*3+1]=col.g; colors[i*3+2]=col.b;
-  }
-  geo.setAttribute('position',new THREE.BufferAttribute(positions,3));
-  geo.setAttribute('color',new THREE.BufferAttribute(colors,3));
-  const mat=new THREE.PointsMaterial({size:2,vertexColors:true,transparent:true,blending:THREE.AdditiveBlending});
-  particles=new THREE.Points(geo,mat);
-  scene.add(particles);
-}
-
-function createBackgroundStars(){
-  const geo=new THREE.BufferGeometry();
-  const count=2000;
-  const pos=new Float32Array(count*3);
-  for(let i=0;i<count;i++){
-    pos[i*3]=(Math.random()-0.5)*2000;
-    pos[i*3+1]=(Math.random()-0.5)*2000;
-    pos[i*3+2]=-Math.random()*1500-50;
-  }
-  geo.setAttribute('position',new THREE.BufferAttribute(pos,3));
-  const mat=new THREE.PointsMaterial({color:0xffffff,size:1.2,transparent:true,opacity:0.7,blending:THREE.AdditiveBlending});
-  starField=new THREE.Points(geo,mat);
-  scene.add(starField);
-}
-
-function animate(){
-  requestAnimationFrame(animate);
-  if(isAnimationEnabled){
-    time+=0.01;
-    if(particles){
-      const pos=particles.geometry.attributes.position.array;
-      for(let i=0;i<particleCount;i++){
-        pos[i*3]+=Math.sin(time+pos[i*3+1])*0.02;
-        pos[i*3+1]+=Math.cos(time+pos[i*3])*0.02;
-      }
-      particles.geometry.attributes.position.needsUpdate=true;
-    }
-    if(shockwaves.length>0){
-      shockwaves.forEach(sw=>{ /* Optional: advanced spreading animation */ });
-    }
-  }
-  controls.update();
-  renderer.render(scene,camera);
-}
-
-/* Interactive Star Rating */
-function createStarRating(){
-  const container=document.getElementById('starRating');
-  for(let i=1;i<=5;i++){
-    const star=document.createElement('span'); star.innerHTML='★';
-    star.dataset.value=i;
-    star.addEventListener('mouseover',()=>highlightStars(i));
-    star.addEventListener('mouseout',()=>highlightStars(selectedStar));
-    star.addEventListener('click',()=>{selectedStar=i; highlightStars(i);});
-    container.appendChild(star);
-  }
-  let selectedStar=0;
-  function highlightStars(val){
-    container.querySelectorAll('span').forEach(star=>{
-      const v=parseInt(star.dataset.value);
-      star.classList.toggle('hovered',v<=val);
-      star.classList.toggle('selected',v<=selectedStar);
-    });
-  }
-}
-
-function onWindowResize(){
-  camera.aspect=window.innerWidth/window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth,window.innerHeight);
-}
+// Toggle animation on click for fun
+btn.addEventListener('mousedown', () => btn.classList.add('active'));
+btn.addEventListener('mouseup', () => btn.classList.remove('active'));
+btn.addEventListener('mouseleave', () => btn.classList.remove('active'));
+btn.addEventListener('touchstart', () => btn.classList.add('active'), {passive: true});
+btn.addEventListener('touchend', () => btn.classList.remove('active'));
 </script>
+
 </body>
 </html>
