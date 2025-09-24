@@ -12,6 +12,32 @@ body {background:#f5f8ff; color:#333; line-height:1.6; overflow-x:hidden;}
 h1,h2,h3,h4,h5,h6 {margin-bottom:0.5rem;}
 a {text-decoration:none;}
 
+<!-- Hero Section -->
+<header class="hero">
+  <!-- Animated floating capsules -->
+  <div class="capsule capsule1"></div>
+  <div class="capsule capsule2"></div>
+  <div class="capsule capsule3"></div>
+  <div class="capsule capsule4"></div>
+
+  <h1 class="hero-title">
+    <span class="anim-word">Innovate</span>
+    <span class="anim-word">Research</span>
+    <span class="anim-word">Formulate</span>
+    <span class="anim-word">Excel</span>
+  </h1>
+
+  <p class="hero-sub">
+    GenCapsule – Showcasing student-led pharmacy projects, models, and research for innovation and learning.
+  </p>
+
+  <div class="hero-ctas">
+    <a href="#projects" class="btn primary">Explore Projects</a>
+    <a href="#team" class="btn ghost">Meet the Team</a>
+  </div>
+</header>
+
+<style>
 /* Hero Section */
 header.hero{
   position:relative;
@@ -19,40 +45,80 @@ header.hero{
   text-align:center;
   background: linear-gradient(135deg,#3b82f6,#9333ea);
   color:white;
-  padding:5rem 1.5rem 4rem;
+  padding:6rem 1.5rem 5rem;
   border-bottom-left-radius:2rem;
   border-bottom-right-radius:2rem;
 }
-header.hero h1{
+
+/* Hero Title Animation */
+.hero-title{
   font-size:3rem;
   font-weight:700;
-  letter-spacing:1px;
-  position:relative; z-index:2;
-  animation:slideIn 1.2s ease-out;
+  margin-bottom:1rem;
 }
-header.hero p{
-  font-size:1.1rem;
-  opacity:0.9;
-  margin-bottom:1.5rem;
-  position:relative; z-index:2;
-  animation:fadeIn 1.5s ease-out;
-}
-header.hero .btn{
+.anim-word{
   display:inline-block;
-  padding:0.7rem 1.5rem;
-  border-radius:50px;
-  background:white;
-  color:#3b82f6;
-  font-weight:600;
-  font-size:0.95rem;
-  transition:all 0.3s ease;
-  position:relative; z-index:2;
-  box-shadow:0 4px 15px rgba(0,0,0,0.2);
+  opacity:0;
+  transform:translateY(30px) rotateX(20deg);
+  animation:fadeWords 8s infinite;
+  padding:0 6px;
 }
-header.hero .btn:hover{ background:#222; color:white; transform:scale(1.05);}
-@keyframes slideIn{0%{opacity:0; transform:translateY(-40px);}100%{opacity:1; transform:translateY(0);}}
-@keyframes fadeIn{0%{opacity:0;}100%{opacity:1;}}
+.anim-word:nth-child(1){ animation-delay:0s; }
+.anim-word:nth-child(2){ animation-delay:2s; }
+.anim-word:nth-child(3){ animation-delay:4s; }
+.anim-word:nth-child(4){ animation-delay:6s; }
 
+@keyframes fadeWords{
+  0%,100%{ opacity:0; transform:translateY(30px) rotateX(20deg);}
+  20%,80%{ opacity:1; transform:translateY(0) rotateX(0);}
+}
+
+.hero-sub{
+  font-size:1.2rem;
+  opacity:0.9;
+  margin-bottom:2rem;
+}
+
+.hero-ctas .btn{
+  display:inline-block;
+  padding:0.8rem 1.8rem;
+  border-radius:50px;
+  font-weight:600;
+  font-size:1rem;
+  margin:0 0.5rem;
+  transition:all 0.3s ease;
+  box-shadow:0 6px 18px rgba(0,0,0,0.2);
+}
+.btn.primary{ background:white; color:#3b82f6;}
+.btn.primary:hover{ background:#fff; color:#222; transform:scale(1.05);}
+.btn.ghost{ background:transparent; border:2px solid white; color:white;}
+.btn.ghost:hover{ background:white; color:#3b82f6; transform:scale(1.05);}
+
+/* Floating Capsules */
+.capsule{
+  position:absolute;
+  border-radius:50px;
+  opacity:0.15;
+  background:linear-gradient(135deg,#60a5fa,#9333ea);
+  width:60px; height:20px;
+  animation:floatCapsule 10s infinite ease-in-out;
+}
+.capsule1{top:20%; left:5%; animation-delay:0s; transform:rotate(45deg);}
+.capsule2{top:10%; right:10%; animation-delay:2s; transform:rotate(-30deg);}
+.capsule3{bottom:20%; left:15%; animation-delay:4s; transform:rotate(60deg);}
+.capsule4{bottom:15%; right:20%; animation-delay:6s; transform:rotate(-45deg);}
+@keyframes floatCapsule{
+  0%,100%{transform:translateY(0) rotate(0deg);}
+  50%{transform:translateY(-20px) rotate(15deg);}
+}
+
+/* Responsive */
+@media(max-width:768px){
+  .hero-title{font-size:2rem;}
+  .hero-sub{font-size:1rem;}
+  .capsule{display:none;}
+}
+</style>
 /* Floating Circles */
 header.hero .circle{position:absolute;border-radius:50%;opacity:0.15; animation:float 10s infinite ease-in-out;}
 .circle1{width:200px;height:200px;top:-50px;left:-50px;background:#60a5fa;}
