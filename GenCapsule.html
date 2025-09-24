@@ -12,32 +12,6 @@ body {background:#f5f8ff; color:#333; line-height:1.6; overflow-x:hidden;}
 h1,h2,h3,h4,h5,h6 {margin-bottom:0.5rem;}
 a {text-decoration:none;}
 
-<!-- Hero Section -->
-<header class="hero">
-  <!-- Animated floating capsules -->
-  <div class="capsule capsule1"></div>
-  <div class="capsule capsule2"></div>
-  <div class="capsule capsule3"></div>
-  <div class="capsule capsule4"></div>
-
-  <h1 class="hero-title">
-    <span class="anim-word">Innovate</span>
-    <span class="anim-word">Research</span>
-    <span class="anim-word">Formulate</span>
-    <span class="anim-word">Excel</span>
-  </h1>
-
-  <p class="hero-sub">
-    GenCapsule – Showcasing student-led pharmacy projects, models, and research for innovation and learning.
-  </p>
-
-  <div class="hero-ctas">
-    <a href="#projects" class="btn primary">Explore Projects</a>
-    <a href="#team" class="btn ghost">Meet the Team</a>
-  </div>
-</header>
-
-<style>
 /* Hero Section */
 header.hero{
   position:relative;
@@ -45,54 +19,48 @@ header.hero{
   text-align:center;
   background: linear-gradient(135deg,#3b82f6,#9333ea);
   color:white;
-  padding:6rem 1.5rem 5rem;
+  padding:5rem 1.5rem 4rem;
   border-bottom-left-radius:2rem;
   border-bottom-right-radius:2rem;
 }
-
-/* Hero Title Animation */
 .hero-title{
   font-size:3rem;
   font-weight:700;
   margin-bottom:1rem;
+  position:relative;
+  z-index:2;
+  animation:slideIn 1.2s ease-out;
 }
-.anim-word{
-  display:inline-block;
-  opacity:0;
-  transform:translateY(30px) rotateX(20deg);
-  animation:fadeWords 8s infinite;
-  padding:0 6px;
+.hero-title .highlight{
+  background:rgba(255,255,255,0.25);
+  padding:5px 12px;
+  border-radius:8px;
 }
-.anim-word:nth-child(1){ animation-delay:0s; }
-.anim-word:nth-child(2){ animation-delay:2s; }
-.anim-word:nth-child(3){ animation-delay:4s; }
-.anim-word:nth-child(4){ animation-delay:6s; }
-
-@keyframes fadeWords{
-  0%,100%{ opacity:0; transform:translateY(30px) rotateX(20deg);}
-  20%,80%{ opacity:1; transform:translateY(0) rotateX(0);}
-}
-
 .hero-sub{
-  font-size:1.2rem;
+  font-size:1.1rem;
   opacity:0.9;
-  margin-bottom:2rem;
+  margin-bottom:1.5rem;
+  position:relative;
+  z-index:2;
+  animation:fadeIn 1.5s ease-out;
 }
-
-.hero-ctas .btn{
+header.hero .btn{
   display:inline-block;
-  padding:0.8rem 1.8rem;
+  padding:0.7rem 1.5rem;
   border-radius:50px;
+  background:white;
+  color:#3b82f6;
   font-weight:600;
-  font-size:1rem;
-  margin:0 0.5rem;
+  font-size:0.95rem;
   transition:all 0.3s ease;
-  box-shadow:0 6px 18px rgba(0,0,0,0.2);
+  position:relative; z-index:2;
+  box-shadow:0 4px 15px rgba(0,0,0,0.2);
 }
-.btn.primary{ background:white; color:#3b82f6;}
-.btn.primary:hover{ background:#fff; color:#222; transform:scale(1.05);}
-.btn.ghost{ background:transparent; border:2px solid white; color:white;}
-.btn.ghost:hover{ background:white; color:#3b82f6; transform:scale(1.05);}
+header.hero .btn:hover{ background:#222; color:white; transform:scale(1.05);}
+
+/* Animations */
+@keyframes slideIn{0%{opacity:0; transform:translateY(-40px);}100%{opacity:1; transform:translateY(0);}}
+@keyframes fadeIn{0%{opacity:0;}100%{opacity:1;}}
 
 /* Floating Capsules */
 .capsule{
@@ -103,28 +71,14 @@ header.hero{
   width:60px; height:20px;
   animation:floatCapsule 10s infinite ease-in-out;
 }
-.capsule1{top:20%; left:5%; animation-delay:0s; transform:rotate(45deg);}
-.capsule2{top:10%; right:10%; animation-delay:2s; transform:rotate(-30deg);}
-.capsule3{bottom:20%; left:15%; animation-delay:4s; transform:rotate(60deg);}
-.capsule4{bottom:15%; right:20%; animation-delay:6s; transform:rotate(-45deg);}
+.capsule1{top:10%; left:5%; transform:rotate(45deg);}
+.capsule2{top:15%; right:10%; transform:rotate(-30deg);}
+.capsule3{bottom:15%; left:15%; transform:rotate(60deg);}
+.capsule4{bottom:20%; right:20%; transform:rotate(-45deg);}
 @keyframes floatCapsule{
   0%,100%{transform:translateY(0) rotate(0deg);}
   50%{transform:translateY(-20px) rotate(15deg);}
 }
-
-/* Responsive */
-@media(max-width:768px){
-  .hero-title{font-size:2rem;}
-  .hero-sub{font-size:1rem;}
-  .capsule{display:none;}
-}
-</style>
-/* Floating Circles */
-header.hero .circle{position:absolute;border-radius:50%;opacity:0.15; animation:float 10s infinite ease-in-out;}
-.circle1{width:200px;height:200px;top:-50px;left:-50px;background:#60a5fa;}
-.circle2{width:250px;height:250px;bottom:-100px;right:-100px;background:#c084fc;}
-.circle3{width:120px;height:120px;top:15%;right:8%;background:#9333ea;}
-@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-20px);}}
 
 /* Section Titles */
 .section-title{text-align:center;font-size:1.8rem;margin:2rem 0 1.5rem;color:#222;font-weight:600;}
@@ -150,8 +104,8 @@ footer{text-align:center;padding:1.2rem;background:#3b82f6;color:white;margin-to
 #popup{position:fixed; top:15px; left:50%; transform:translateX(-50%); background:#ff4d4f; color:white; padding:12px 20px; border-radius:10px; font-size:0.95rem; z-index:9999; opacity:0; transition:opacity 0.3s ease;}
 
 /* Responsive */
-@media(max-width:1024px){ header.hero h1{font-size:2.5rem;} header.hero p{font-size:1rem;} }
-@media(max-width:768px){ header.hero{padding:4rem 1rem 3rem;} .circle1,.circle2,.circle3{display:none;} .container{grid-template-columns:1fr;} }
+@media(max-width:1024px){ .hero-title{font-size:2.5rem;} .hero-sub{font-size:1rem;} }
+@media(max-width:768px){ header.hero{padding:4rem 1rem 3rem;} .capsule{display:none;} .container{grid-template-columns:1fr;} }
 </style>
 </head>
 <body oncontextmenu="return false;" onselectstart="return false;" ondragstart="return false;">
@@ -167,11 +121,17 @@ function toggleDetails(card){ const d=card.querySelector('.details'); if(d.style
 
 <!-- Hero Section -->
 <header class="hero">
-  <div class="circle circle1"></div>
-  <div class="circle circle2"></div>
-  <div class="circle circle3"></div>
-  <h1>GenCapsule</h1>
-  <p>Innovative Pharmacy Projects – Posters & Kidney Model Showcase</p>
+  <div class="capsule capsule1"></div>
+  <div class="capsule capsule2"></div>
+  <div class="capsule capsule3"></div>
+  <div class="capsule capsule4"></div>
+
+  <h1 class="hero-title">
+    GenCapsule – <span class="highlight">Innovation in Pharmacy</span>
+  </h1>
+  <p class="hero-sub">
+    Explore student-led projects, posters, and 3D models showcasing pharmaceutical knowledge and creativity.
+  </p>
   <a href="#team" class="btn">Meet the Team</a>
 </header>
 
@@ -211,7 +171,6 @@ function toggleDetails(card){ const d=card.querySelector('.details'); if(d.style
 <section id="team">
   <h2 class="section-title">Meet the GenCapsule Team</h2>
   <div class="container members">
-
     <div class="card">
       <img src="https://github.com/Ayuxhgpt/PharmaElevate/blob/main/assists/ayupfp.jpg?raw=true" alt="Ayush Gupta">
       <h3>Ayush Gupta</h3>
@@ -251,7 +210,6 @@ function toggleDetails(card){ const d=card.querySelector('.details'); if(d.style
       <p>Contributed across multiple areas of the project, a reliable team player.</p>
       <a href="https://instagram.com/Sandeep_sks563" class="insta" target="_blank">@Sandeep_sks563</a>
     </div>
-
   </div>
 </section>
 
