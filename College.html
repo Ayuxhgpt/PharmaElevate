@@ -1,240 +1,105 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PharmaElevate – Satyadev College of Pharmacy</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Our College — Satyadev College of Pharmacy</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* ===== GENERAL RESET ===== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background: #f8f9fa;
-      color: #333;
-    }
-
-    /* ===== NAVBAR ===== */
-    nav {
-      background: #c0392b;
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 40px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    nav .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    nav .logo img {
-      height: 40px;
-      border-radius: 50%;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-    }
-    nav ul li a {
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-    nav ul li a:hover {
-      color: #ffd700;
-    }
-
-    /* ===== OUR COLLEGE SECTION ===== */
-    .our-college {
-      padding: 50px 20px;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      margin: 40px auto;
-      max-width: 1200px;
-    }
-    .our-college h1 {
-      text-align: center;
-      color: #c0392b;
-      margin-bottom: 20px;
-    }
-    .college-images {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 25px;
-      margin: 30px 0;
-    }
-    .image-card {
-      text-align: center;
-      max-width: 260px;
-    }
-    .image-card img {
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      transition: 0.3s;
-    }
-    .image-card img:hover {
-      transform: scale(1.05);
-    }
-    .image-card p {
-      margin-top: 10px;
-      font-weight: bold;
-    }
-
-    /* ===== CONTENT SECTIONS ===== */
-    h2 {
-      margin: 25px 0 10px;
-      color: #2c3e50;
-    }
-    p, li {
-      font-size: 16px;
-      line-height: 1.6;
-      margin-bottom: 10px;
-    }
-    ul {
-      list-style-type: square;
-      padding-left: 20px;
-    }
-
-    /* ===== ADDRESS ===== */
-    .address {
-      text-align: center;
-      margin-top: 30px;
-      padding: 20px;
-      background: #f2f2f2;
-      border-radius: 8px;
-    }
-
-    /* ===== RESPONSIVE DESIGN ===== */
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      nav ul {
-        flex-direction: column;
-        gap: 10px;
-        margin-top: 10px;
-      }
-      .college-images {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-  </style>
 </head>
 <body>
 
-  <!-- ===== NAVIGATION BAR ===== -->
-  <nav>
-    <div class="logo">
-      <img src="your-logo-link" alt="PharmaElevate Logo">
-      <span><b>PharmaElevate</b></span>
+  <!-- NAVBAR (same style as index) -->
+  <header class="nav-glass" id="site-header" role="banner">
+    <div class="nav-inner container">
+      <a class="brand" href="index.html" aria-label="PharmaElevate home">
+        <img src="assists/scp.jpg" alt="Satyadev College Logo" class="brand-logo">
+        <div class="brand-text">
+          <div class="brand-title">PharmaElevate</div>
+          <div class="brand-sub">Satyadev College of Pharmacy</div>
+        </div>
+      </a>
+      
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="index.html#home">Home</a>
+        <a href="College.html" class="active">Our College</a>
+        <a href="index.html#knowledge">Pharma Knowledge</a>
+        <a href="index.html#research">Research</a>
+        <a href="index.html#resources">Resources</a>
+        <a href="faculty.html">Faculty</a>
+        <a href="index.html#developers">Developers</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+
+      <button id="menuBtn" class="menu-btn" aria-controls="navLinks" aria-expanded="false" aria-label="Toggle menu">
+        <i class="fa fa-bars"></i>
+      </button>
     </div>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#knowledge">Pharma Knowledge</a></li>
-      <li><a href="#research">Research</a></li>
-      <li><a href="#resources">Resources</a></li>
-      <li><a href="#our-college">Our College</a></li>
-      <li><a href="#developers">Developers</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+  </header>
 
-  <!-- ===== OUR COLLEGE SECTION ===== -->
-  <section class="our-college" id="our-college">
-    <h1>🏫 Our College</h1>
+  <!-- CONTENT for Our College section -->
+  <main class="section">
+    <div class="container narrow">
+      <h1 class="section-heading">Our College</h1>
 
-    <!-- Images -->
-    <div class="college-images">
-      <div class="image-card">
-        <img src="your-building-image-link" alt="College Building">
-        <p><strong>Satyadev College of Pharmacy</strong></p>
+      <div class="notes-links college-images">
+        <p><img src="https://raw.githubusercontent.com/Ayuxhgpt/PharmaElevate/main/assists/Building.jpg" alt="College Building"></p>
+        <p><img src="https://raw.githubusercontent.com/Ayuxhgpt/PharmaElevate/main/assists/Founder%20Karamveer.jpg" alt="Founder Karmveer Satyadev Singh"></p>
+        <p><img src="https://raw.githubusercontent.com/Ayuxhgpt/PharmaElevate/main/assists/Chairman%20Doctor%20Sanand%20Singh.jpg" alt="Chairman Dr Sanand Singh"></p>
       </div>
-      <div class="image-card">
-        <img src="your-founder-image-link" alt="Founder Karmveer Satyadev Singh">
-        <p><strong>Founder:</strong> Late Karmveer Satyadev Singh</p>
-      </div>
-      <div class="image-card">
-        <img src="your-chairman-image-link" alt="Chairman Dr. Sanand Singh">
-        <p><strong>Chairman & MD:</strong> Dr. Sanand Singh</p>
-      </div>
-    </div>
 
-    <!-- Affiliation -->
-    <div class="affiliation">
-      <h2>Affiliation, Recognition & Approval</h2>
+      <h2 class="section-subheading">Affiliation, Recognition & Approval</h2>
       <ul>
-        <li><b>D.Pharm:</b> Approved by PCI & AICTE (New Delhi), recognized by State Govt. of UP & affiliated to BTE Lucknow.</li>
-        <li><b>B.Pharm:</b> Approved by PCI & AICTE (New Delhi), recognized by State Govt. of UP & affiliated to AKTU Lucknow.</li>
+        <li><strong>D.Pharm:</strong> Approved by PCI & AICTE (New Delhi), recognized by State Govt. of UP & affiliated to BTE Lucknow.</li>
+        <li><strong>B.Pharm:</strong> Approved by PCI & AICTE (New Delhi), recognized by State Govt. of UP & affiliated to AKTU Lucknow.</li>
       </ul>
-    </div>
 
-    <!-- About -->
-    <div class="about-college">
-      <h2>About Satyadev College of Pharmacy</h2>
+      <h2 class="section-subheading">About Satyadev College of Pharmacy</h2>
       <p>
-        Satyadev College is a renowned institution dedicated to <b>academic excellence and holistic development</b>.
-        With a rich legacy of imparting quality education, our college stands as a beacon of knowledge, innovation, and values.
-        Our mission is to empower students with the skills, knowledge, and integrity necessary to excel in their professional careers
-        and contribute meaningfully to society.
+        Satyadev College is a renowned institution dedicated to <strong>academic excellence and holistic development</strong>. With a rich legacy of imparting quality education, our college stands as a beacon of knowledge, innovation, and values. Our mission is to empower students with the skills, knowledge, and integrity necessary to excel in their professional careers and contribute meaningfully to society.
+      </p>
+
+      <h2 class="section-subheading">Our Vision</h2>
+      <p>To emerge as a leading institution of higher learning, recognized for academic excellence, innovative research, and commitment to societal development. We aim to produce graduates who are not only knowledgeable but also socially responsible and globally competitive.</p>
+
+      <h2 class="section-subheading">Our Values</h2>
+      <ul>
+        <li><strong>Excellence:</strong> We strive for academic excellence and continuous improvement.</li>
+        <li><strong>Innovation:</strong> We encourage innovation and creativity in our students and faculty.</li>
+        <li><strong>Integrity:</strong> We uphold the highest standards of integrity and ethics.</li>
+        <li><strong>Inclusivity:</strong> We promote a culture of inclusivity and diversity.</li>
+      </ul>
+
+      <h2 class="section-subheading">Facilities & Support</h2>
+      <p>
+        The college supports faculty development by providing research facilities. The library holds over <strong>3500 books</strong> and subscribes to more than <strong>12 international & national journals</strong>. Faculty members are qualified per PCI/AICTE norms. Our future endeavour is to start <strong>M.Pharm</strong> and <strong>Pharm.D</strong> courses.
+      </p>
+
+      <h2 class="section-subheading">📍 Address</h2>
+      <p>
+        <strong>4825 - SATYADEV COLLEGE OF PHARMACY</strong><br>
+        Vill – Borsiya, Post – Fadanpur, Ghazipur, Uttar Pradesh
       </p>
     </div>
+  </main>
 
-    <!-- Values -->
-    <div class="values">
-      <h2>Our Values</h2>
-      <ul>
-        <li><b>Excellence:</b> Striving for academic quality & continuous improvement.</li>
-        <li><b>Innovation:</b> Encouraging creativity in teaching, learning & research.</li>
-        <li><b>Integrity:</b> Upholding high standards of ethics and professionalism.</li>
-        <li><b>Inclusivity:</b> Promoting diversity, equality & cultural respect.</li>
-      </ul>
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <img src="assists/scp.jpg" alt="Logo" class="foot-logo">
+        <div>
+          <strong>PharmaElevate</strong><br>
+          Satyadev College of Pharmacy — Ghazipur
+        </div>
+      </div>
+      <div class="footer-right">
+        <p class="small">© 2025 PharmaElevate — Developed by Ayush & Saksham</p>
+      </div>
     </div>
+  </footer>
 
-    <!-- Vision -->
-    <div class="vision">
-      <h2>Our Vision</h2>
-      <p>
-        To emerge as a <b>leading institution of higher learning</b>, recognized for academic excellence,
-        innovative research, and strong commitment to societal development.
-        We aim to produce <b>globally competitive, socially responsible graduates</b>.
-      </p>
-    </div>
-
-    <!-- Facilities -->
-    <div class="facilities">
-      <h2>Facilities & Support</h2>
-      <ul>
-        <li>Well-stocked library with 3,500+ books and 12+ journals.</li>
-        <li>Qualified faculty members as per PCI and AICTE norms.</li>
-        <li>Focus on faculty development & research facilities.</li>
-        <li>Future plans to start M.Pharm and Pharm.D courses.</li>
-      </ul>
-    </div>
-
-    <!-- Address -->
-    <div class="address">
-      <h2>📍 Address</h2>
-      <p><b>Satyadev College of Pharmacy</b><br>
-      Vill – Borsiya, Post – Fadanpur, Ghazipur, Uttar Pradesh<br>
-      College Code: <b>4825</b></p>
-    </div>
-  </section>
-
+  <script src="script.js" defer></script>
 </body>
 </html>
