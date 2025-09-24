@@ -3,9 +3,114 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Notes & Past Papers — Study Materials — PharmaElevate</title>
+  <title>Notes & Past Papers — PharmaElevate</title>
   <link rel="stylesheet" href="../style.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    /* Section banner */
+    .hero-banner {
+      background: linear-gradient(135deg, #0077b6, #00b4d8, #90e0ef);
+      color: #fff;
+      padding: 3rem 1.5rem;
+      text-align: center;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      margin-bottom: 2rem;
+    }
+    .hero-banner h1 {
+      font-size: 2rem;
+      margin: 0;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .hero-banner p {
+      margin-top: 0.8rem;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    /* Info section */
+    .info-box {
+      background: #f9f9fb;
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
+    .info-box h2 {
+      margin-top: 0;
+      font-size: 1.4rem;
+      color: #0077b6;
+    }
+    .info-box ul {
+      list-style: none;
+      padding: 0;
+    }
+    .info-box li {
+      margin: 0.6rem 0;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+    }
+    .info-box li i {
+      color: #00b4d8;
+      margin-right: 0.6rem;
+    }
+
+    /* Notes cards */
+    .notes-grid {
+      display: grid;
+      gap: 1.2rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      margin: 2rem 0;
+    }
+    .note-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 1.2rem;
+      text-align: center;
+      border: 1px solid #eee;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+    .note-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+    .note-card i {
+      font-size: 2rem;
+      color: #0077b6;
+      margin-bottom: 0.6rem;
+    }
+    .note-card a {
+      display: block;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #0077b6;
+      text-decoration: none;
+      margin-top: 0.5rem;
+    }
+    .note-card a:hover {
+      text-decoration: underline;
+    }
+
+    /* Back button */
+    .back-btn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 10px 20px;
+      border-radius: 8px;
+      background: #0077b6;
+      color: #fff;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .back-btn:hover {
+      background: #023e8a;
+    }
+  </style>
 </head>
 <body>
   <header class="nav-glass">
@@ -30,28 +135,48 @@
 
   <main class="section">
     <div class="container narrow">
-      <h1 class="section-heading">Notes & Past Papers — Study Materials</h1>
       
-      <p><strong>Overview</strong></p>
-      <p>This section collects concise notes, exam tips, and curated past papers useful for GPAT and university exams. Include PDF links to past papers and quick revision sheets for high-yield topics.</p>
-
-      <p><strong>Study tips</strong></p>
-      <ul>
-        <li>Make concept maps for pharmacology topics</li>
-        <li>Practice MCQs regularly and review explanations</li>
-        <li>Use flashcards for drug names and mechanisms</li>
-      </ul>
-      <p><strong>Further reading</strong>: Search for official GPAT past papers and PCI syllabus PDFs for authoritative material.</p>
-
-      <h2 class="section-subheading">📂 Download Notes</h2>
-      <div class="notes-links">
-        <p><a class="btn primary" href="https://drive.google.com/drive/folders/12lL_nrxWGzgBdk63KKu1ND0aOxWebgeK" target="_blank"><i class="fa-solid fa-flask"></i> Pharmaceutical Inorganic Chemistry</a></p>
-        <p><a class="btn primary" href="https://drive.google.com/drive/folders/16_bntdYMHEmYHuT8_1iRTPqkC0rzMET5" target="_blank"><i class="fa-solid fa-vials"></i> Pharmaceutical Analysis</a></p>
-        <p><a class="btn primary" href="https://drive.google.com/drive/folders/1_uiuVtTofXOOffS6aQp-iMwIPf7bJmvF" target="_blank"><i class="fa-solid fa-capsules"></i> Pharmaceutics</a></p>
-        <p><a class="btn primary" href="https://drive.google.com/drive/folders/1SF7124_XcLTKbMT6Mx1VFsNOzO6l0vYI" target="_blank"><i class="fa-solid fa-heart-pulse"></i> Human Anatomy and Physiology</a></p>
+      <!-- Hero Banner -->
+      <div class="hero-banner">
+        <h1>Notes & Past Papers</h1>
+        <p>Study materials, concise notes & curated past papers for GPAT and university exams.</p>
       </div>
 
-      <p class="center"><a class="btn secondary" href="../index.html">← Back to Home</a></p>
+      <!-- Study Tips -->
+      <div class="info-box">
+        <h2><i class="fa-solid fa-lightbulb"></i> Study Tips</h2>
+        <ul>
+          <li><i class="fa-solid fa-diagram-project"></i> Make concept maps for pharmacology topics</li>
+          <li><i class="fa-solid fa-pen-to-square"></i> Practice MCQs regularly and review explanations</li>
+          <li><i class="fa-solid fa-clone"></i> Use flashcards for drug names and mechanisms</li>
+        </ul>
+        <p><strong>Further reading:</strong> Check official GPAT past papers & PCI syllabus PDFs for authentic material.</p>
+      </div>
+
+      <!-- Notes Grid -->
+      <h2 class="section-subheading">📂 Download Notes</h2>
+      <div class="notes-grid">
+        <div class="note-card">
+          <i class="fa-solid fa-flask"></i>
+          <a href="https://drive.google.com/drive/folders/12lL_nrxWGzgBdk63KKu1ND0aOxWebgeK" target="_blank">Pharmaceutical Inorganic Chemistry</a>
+        </div>
+        <div class="note-card">
+          <i class="fa-solid fa-vials"></i>
+          <a href="https://drive.google.com/drive/folders/16_bntdYMHEmYHuT8_1iRTPqkC0rzMET5" target="_blank">Pharmaceutical Analysis</a>
+        </div>
+        <div class="note-card">
+          <i class="fa-solid fa-capsules"></i>
+          <a href="https://drive.google.com/drive/folders/1_uiuVtTofXOOffS6aQp-iMwIPf7bJmvF" target="_blank">Pharmaceutics</a>
+        </div>
+        <div class="note-card">
+          <i class="fa-solid fa-heart-pulse"></i>
+          <a href="https://drive.google.com/drive/folders/1SF7124_XcLTKbMT6Mx1VFsNOzO6l0vYI" target="_blank">Human Anatomy and Physiology</a>
+        </div>
+      </div>
+
+      <!-- Back -->
+      <p class="center"><a class="back-btn" href="../index.html">← Back to Home</a></p>
+
     </div>
   </main>
 
