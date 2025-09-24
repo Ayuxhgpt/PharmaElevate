@@ -266,6 +266,27 @@
         </div>
       </div>
     </section>
+    <!-- GRIEVANCE FORM -->
+<section class="section cta" aria-labelledby="grievance" style="background: linear-gradient(135deg, #3b82f6, #60a5fa); color: #fff; padding: 4rem 0; position: relative; overflow: hidden;">
+  <div class="container" style="max-width: 800px; margin: 0 auto; text-align: center; position: relative; z-index: 2;">
+    
+    <h2 id="grievance" class="section-heading" style="font-size: 2.5rem; margin-bottom: 0.5rem;">Submit Your Grievance</h2>
+    <p style="font-size: 1.1rem; margin-bottom: 2rem; color: rgba(255,255,255,0.85);">
+      Share your concerns, issues, or suggestions with us. Your feedback helps us improve our projects and services.
+    </p>
+    
+    <form class="grievance-form" name="grievance" method="POST" data-netlify="true" aria-label="Grievance form" style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+      <input type="hidden" name="form-name" value="grievance">
+
+      <input name="name" type="text" placeholder="Your Name" required style="flex: 1 1 200px; padding: 0.8rem 1rem; border-radius: 8px; border: none; font-size: 1rem;">
+      <input name="email" type="email" placeholder="Your Email" required style="flex: 1 1 200px; padding: 0.8rem 1rem; border-radius: 8px; border: none; font-size: 1rem;">
+      <input name="phone" type="tel" placeholder="Phone (optional)" style="flex: 1 1 200px; padding: 0.8rem 1rem; border-radius: 8px; border: none; font-size: 1rem;">
+      <textarea name="grievance" placeholder="Describe Your Grievance" required style="flex: 1 1 100%; padding: 0.8rem 1rem; border-radius: 8px; border: none; font-size: 1rem; min-height: 120px;"></textarea>
+
+      <button class="btn primary" type="submit" style="background: #fff; color: #3b82f6; padding: 0.8rem 2rem; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: 0.3s; border: none;">Submit</button>
+    </form>
+  </div>
+</section>
 
     <!-- NEWSLETTER CTA -->
 <section class="section cta" aria-labelledby="subscribe" style="background: linear-gradient(135deg, #3b82f6, #60a5fa); color: #fff; padding: 4rem 0; position: relative; overflow: hidden;">
