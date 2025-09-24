@@ -287,6 +287,39 @@
     </form>
   </div>
 </section>
+    <!-- Telegram Grievance Script -->
+<script>
+const TELEGRAM_BOT_TOKEN = '8009980915:AAFoYoG1SpzIYKg1pYGhw-ewRpf4JpLAxUk';
+const ADMIN_IDS = ['5551211670', '6338280327'];
+
+document.getElementById('grievance-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  
+  const formData = new FormData(this);
+  const name = formData.get('name');
+  const email = formData.get('email');
+  const phone = formData.get('phone') || 'N/A';
+  const grievance = formData.get('grievance');
+  
+  const message = New Grievance Submitted:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nGrievance: ${grievance};
+
+  try {
+    await Promise.all(ADMIN_IDS.map(adminId => 
+      fetch(https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: adminId, text: message })
+      })
+    ));
+    
+    alert('Your grievance has been sent successfully!');
+    this.reset();
+  } catch (err) {
+    console.error(err);
+    alert('Error sending grievance. Please try again.');
+  }
+});
+</script>
 
   <!-- Optional decorative shapes -->
   <div style="position: absolute; top: -50px; left: -50px; width: 200px; height: 200px; background: rgba(255,255,255,0.1); border-radius: 50%; z-index: 1;"></div>
